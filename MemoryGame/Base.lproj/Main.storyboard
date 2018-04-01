@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sf9-qk-zx3">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,130 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MemoryGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Memory Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJc-cO-xbl">
+                                <rect key="frame" x="70" y="39" width="235" height="35.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="mediumBtn" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aUR-eN-ku1">
+                                <rect key="frame" x="112" y="237" width="150" height="51"/>
+                                <color key="backgroundColor" red="1" green="0.21489717389999999" blue="0.32326783250000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="2K9-dP-X3I"/>
+                                    <constraint firstAttribute="width" constant="150" id="UY9-42-WN3"/>
+                                </constraints>
+                                <state key="normal" title="Medium">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" restorationIdentifier="hardBtn" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LKd-A6-3Ob">
+                                <rect key="frame" x="112" y="349" width="150" height="51"/>
+                                <color key="backgroundColor" red="1" green="0.21489717389999999" blue="0.32326783250000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="mWl-tb-ieI"/>
+                                    <constraint firstAttribute="height" constant="51" id="zRT-or-ELg"/>
+                                </constraints>
+                                <state key="normal" title="Hard">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="easyBtn" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nb5-0j-4wf">
+                                <rect key="frame" x="112" y="125" width="150" height="51"/>
+                                <color key="backgroundColor" red="1" green="0.21489717389999999" blue="0.32326783250000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="9QH-yT-zf0"/>
+                                    <constraint firstAttribute="height" constant="51" id="Ewx-Ug-tgH"/>
+                                </constraints>
+                                <state key="normal" title="Easy">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="nb5-0j-4wf" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="1El-qI-BBN"/>
+                            <constraint firstItem="aUR-eN-ku1" firstAttribute="top" secondItem="nb5-0j-4wf" secondAttribute="bottom" constant="61" id="82t-yD-Bai"/>
+                            <constraint firstItem="nb5-0j-4wf" firstAttribute="top" secondItem="FJc-cO-xbl" secondAttribute="bottom" constant="50.5" id="AAb-dT-bLk"/>
+                            <constraint firstItem="LKd-A6-3Ob" firstAttribute="top" secondItem="aUR-eN-ku1" secondAttribute="bottom" constant="61" id="OK3-cS-ncj"/>
+                            <constraint firstItem="FJc-cO-xbl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="70" id="Rbd-TD-ATa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LKd-A6-3Ob" secondAttribute="bottom" constant="267" id="Uy6-tm-7FD"/>
+                            <constraint firstItem="FJc-cO-xbl" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Wd0-sY-BOJ"/>
+                            <constraint firstItem="FJc-cO-xbl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="19" id="kY0-5v-Hbr"/>
+                            <constraint firstItem="aUR-eN-ku1" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="lgt-uq-6Ji"/>
+                            <constraint firstItem="LKd-A6-3Ob" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="wLH-j9-SQ7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FJc-cO-xbl" secondAttribute="trailing" constant="70" id="wfb-PB-rEh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+        </scene>
+        <!--Game Board View Controller-->
+        <scene sceneID="Bwp-94-zgN">
+            <objects>
+                <viewController id="sf9-qk-zx3" customClass="GameBoardViewController" customModule="MemoryGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kPE-wK-eLk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uT6-F7-efR">
+                                <rect key="frame" x="57" y="161" width="261" height="345"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="50" minimumInteritemSpacing="10" id="v82-Mn-WGj">
+                                    <size key="itemSize" width="62" height="62"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Emoji Cell" id="Gt6-Y0-hFO" customClass="EmojiCollectionViewCell" customModule="MemoryGame" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="62" height="62"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="62" height="62"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWa-iX-33X">
+                                                    <rect key="frame" x="0.0" y="0.0" width="62" height="62"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="0.21489717389999999" blue="0.32326783250000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="emojiCell" destination="aWa-iX-33X" id="wOh-dQ-EK4"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.52106585339975164" green="0.83237083321683902" blue="1" alpha="0.86465669014084512" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="W9D-ae-A8u" firstAttribute="bottom" secondItem="uT6-F7-efR" secondAttribute="bottom" constant="161" id="J2S-sX-nGE"/>
+                            <constraint firstItem="uT6-F7-efR" firstAttribute="top" secondItem="W9D-ae-A8u" secondAttribute="top" constant="141" id="iat-jX-z5u"/>
+                            <constraint firstItem="W9D-ae-A8u" firstAttribute="trailing" secondItem="uT6-F7-efR" secondAttribute="trailing" constant="57" id="jG5-o6-nvn"/>
+                            <constraint firstItem="uT6-F7-efR" firstAttribute="leading" secondItem="W9D-ae-A8u" secondAttribute="leading" constant="57" id="s7b-Nf-NYC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="W9D-ae-A8u"/>
+                    </view>
+                    <connections>
+                        <outlet property="gameBoardCollectionView" destination="uT6-F7-efR" id="fZq-FF-a1q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nDh-cl-K0P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="984.79999999999995" y="130.88455772113943"/>
         </scene>
     </scenes>
 </document>
