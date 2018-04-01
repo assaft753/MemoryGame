@@ -65,6 +65,20 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
         
     }
     
+    private func segueTo()
+    {
+        if isGameOver()
+        {
+            performSegue(withIdentifier: "Game Over", sender: nil)
+        }
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let endGameController=segue.destination as! FinishViewController
+        endGameController.difficulty=self.difficulty
+    }
+    
     private func isGameOver()->Bool
     {
         return self.pairsCounter > 0 ? false : true
@@ -90,6 +104,7 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
                 self.prevCell?.isMatched=true
                 cell.isMatched=true
                 self.pairsCounter-=1
+                segueTo()
             }
             else
             {

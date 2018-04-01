@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -86,7 +87,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+            <point key="canvasLocation" x="782" y="494"/>
         </scene>
         <!--Game Board View Controller-->
         <scene sceneID="Bwp-94-zgN">
@@ -141,14 +142,62 @@
                     </view>
                     <connections>
                         <outlet property="gameBoardCollectionView" destination="uT6-F7-efR" id="fZq-FF-a1q"/>
+                        <segue destination="8B2-Zf-sau" kind="show" identifier="Game Over" id="wBD-6j-Ijy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nDh-cl-K0P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="984.79999999999995" y="130.88455772113943"/>
+            <point key="canvasLocation" x="1666" y="493"/>
+        </scene>
+        <!--Finish View Controller-->
+        <scene sceneID="Jw6-pm-rl7">
+            <objects>
+                <viewController id="8B2-Zf-sau" customClass="FinishViewController" customModule="MemoryGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Unm-3P-gpU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="cLh-8U-6nK">
+                                <rect key="frame" x="83" y="293.5" width="209" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXD-up-S0b">
+                                        <rect key="frame" x="0.0" y="0.0" width="209" height="46"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <state key="normal" title="Change Difficulty">
+                                            <color key="titleColor" red="1" green="0.21489717389999999" blue="0.32326783250000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="Change Difficulty" id="Vg2-08-9U7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obl-Cv-YOR">
+                                        <rect key="frame" x="0.0" y="54" width="209" height="46"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <state key="normal" title="Play Again">
+                                            <color key="titleColor" red="1" green="0.21489717389999999" blue="0.32326783250000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="sf9-qk-zx3" kind="show" identifier="Play Again" id="bVp-WW-xj7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="cLh-8U-6nK" firstAttribute="centerX" secondItem="GGy-al-t9W" secondAttribute="centerX" id="1MR-lH-vCB"/>
+                            <constraint firstItem="cLh-8U-6nK" firstAttribute="centerY" secondItem="GGy-al-t9W" secondAttribute="centerY" id="vIf-qf-hB3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="GGy-al-t9W"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qJU-ex-iVK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1196" y="-243"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="UPj-uy-bvh"/>
+        <segue reference="wBD-6j-Ijy"/>
+        <segue reference="bVp-WW-xj7"/>
     </inferredMetricsTieBreakers>
 </document>

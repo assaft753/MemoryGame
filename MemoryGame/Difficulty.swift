@@ -9,9 +9,9 @@
 import Foundation
 
 enum Difficulty {
-    case Easy //(Int,Int)
-    case Medium //(Int,Int)
-    case Hard //(Int,Int)
+    case Easy
+    case Medium
+    case Hard
     
     func getSecRow() -> (Int,Int) {
         switch self {
