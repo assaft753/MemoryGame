@@ -16,6 +16,8 @@
 		7002029720693DDD00C4E17B /* MemoryGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7002029620693DDD00C4E17B /* MemoryGameUITests.swift */; };
 		7060651B2070D51E001D6FE4 /* GameBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7060651A2070D51E001D6FE4 /* GameBoardViewController.swift */; };
 		7060651D2070D7DA001D6FE4 /* EmojiCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7060651C2070D7DA001D6FE4 /* EmojiCollectionViewCell.swift */; };
+		7066B639207122F7006931ED /* Difficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7066B638207122F7006931ED /* Difficulty.swift */; };
+		7066B63B2071277B006931ED /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7066B63A2071277B006931ED /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		7002029820693DDD00C4E17B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7060651A2070D51E001D6FE4 /* GameBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardViewController.swift; sourceTree = "<group>"; };
 		7060651C2070D7DA001D6FE4 /* EmojiCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiCollectionViewCell.swift; sourceTree = "<group>"; };
+		7066B638207122F7006931ED /* Difficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difficulty.swift; sourceTree = "<group>"; };
+		7066B63A2071277B006931ED /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,7 @@
 		7002027220693DDD00C4E17B /* MemoryGame */ = {
 			isa = PBXGroup;
 			children = (
+				7066B638207122F7006931ED /* Difficulty.swift */,
 				7002027320693DDD00C4E17B /* AppDelegate.swift */,
 				7002027720693DDD00C4E17B /* Main.storyboard */,
 				7060651A2070D51E001D6FE4 /* GameBoardViewController.swift */,
@@ -109,6 +114,7 @@
 				7002027F20693DDD00C4E17B /* LaunchScreen.storyboard */,
 				7002028220693DDD00C4E17B /* Info.plist */,
 				7002027A20693DDD00C4E17B /* MemoryGame.xcdatamodeld */,
+				7066B63A2071277B006931ED /* MainViewController.swift */,
 			);
 			path = MemoryGame;
 			sourceTree = "<group>";
@@ -267,6 +273,8 @@
 			files = (
 				7002027420693DDD00C4E17B /* AppDelegate.swift in Sources */,
 				7002027C20693DDD00C4E17B /* MemoryGame.xcdatamodeld in Sources */,
+				7066B639207122F7006931ED /* Difficulty.swift in Sources */,
+				7066B63B2071277B006931ED /* MainViewController.swift in Sources */,
 				7060651B2070D51E001D6FE4 /* GameBoardViewController.swift in Sources */,
 				7060651D2070D7DA001D6FE4 /* EmojiCollectionViewCell.swift in Sources */,
 			);

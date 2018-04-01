@@ -14,26 +14,24 @@ class EmojiCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var emojiCell: UILabel!
     var cubeEmoji=""
     var isFacedUp=false
+    var isMatched=false
+    
+    func setMatched()
     {
-        didSet
+        isHidden=self.isMatched
+    }
+    
+    func setFacedUp()
+    {
+        if self.isFacedUp
         {
-            if isFacedUp
-            {
             emojiCell.backgroundColor=UIColor.clear
             emojiCell.text=cubeEmoji
-            }
-            else
-            {
-                emojiCell.backgroundColor=#colorLiteral(red: 1, green: 0, blue: 0.2955140769, alpha: 1)
-                emojiCell.text=""
-            }
         }
-    }
-    var isMatched=false
-    {
-        didSet
+        else
         {
-            isHidden=true
+            emojiCell.backgroundColor=#colorLiteral(red: 1, green: 0, blue: 0.2955140769, alpha: 1)
+            emojiCell.text=""
         }
     }
     

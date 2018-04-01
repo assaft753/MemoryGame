@@ -13,7 +13,18 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
     let MARGIN:CGFloat = 5
     var allEmojis = ["😀","😇","😎","😈","🙀","👶","🙉","🍔","🎮","🥇"]
     var emojis:[String]=[]
-    var pairsCounter=10
+    var emojiCells:[EmojiCollectionViewCell]=[]
+    var pairsCounter=0
+    var sections=0
+    var rows=0
+    var difficulty:Difficulty?
+    {
+        didSet
+        {
+            (sections,rows) = difficulty!.getSecRow()
+            pairsCounter=sections*rows/2
+        }
+    }
     weak var prevCell:EmojiCollectionViewCell?
     
     override func viewDidLoad() {
@@ -28,7 +39,7 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return sections
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -36,12 +47,12 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
         let random=Int(arc4random_uniform(UInt32(emojis.count)))
         cell.cubeEmoji=emojis[random]
         emojis.remove(at: random)
-        print("\(cell.cubeEmoji) \(indexPath)")
+        emojiCells.append(cell)
         return cell
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 5
+        return rows
     }
     
     @objc func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
@@ -50,28 +61,8 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell=collectionView.cellForItem(at: indexPath) as! EmojiCollectionViewCell
+        self.compareHandler(compareTo: cell,with: indexPath)
         
-        if prevCell == nil
-        {
-            prevCell=cell
-            prevCell?.isFacedUp=true
-        }
-        else if let prevIndexPath=collectionView.indexPath(for: prevCell!),prevIndexPath != indexPath
-        {
-            cell.isFacedUp=true
-            if prevCell?.cubeEmoji == cell.cubeEmoji
-            {
-                prevCell?.isMatched=true
-                cell.isMatched=true
-                self.pairsCounter-=1
-            }
-            else
-            {
-                prevCell?.isFacedUp=false
-                cell.isFacedUp=false
-            }
-            prevCell=nil
-        }
     }
     
     private func isGameOver()->Bool
@@ -79,6 +70,35 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
         return self.pairsCounter > 0 ? false : true
     }
     
-    
-    
+    private func compareHandler(compareTo cell:EmojiCollectionViewCell,with indexPath:IndexPath)
+    {
+        cell.isFacedUp=true
+        for emojicell in emojiCells
+        {
+            emojicell.setFacedUp()
+            emojicell.setMatched()
+        }
+        if prevCell == nil
+        {
+            prevCell=cell
+        }
+        else if let prevIndexPath=self.gameBoardCollectionView.indexPath(for: prevCell!),prevIndexPath != indexPath
+        {
+            
+            if self.prevCell?.cubeEmoji == cell.cubeEmoji
+            {
+                self.prevCell?.isMatched=true
+                cell.isMatched=true
+                self.pairsCounter-=1
+            }
+            else
+            {
+                self.prevCell?.isFacedUp=false
+                cell.isFacedUp=false
+            }
+            self.prevCell=nil
+            
+        }
+    }
 }
+
