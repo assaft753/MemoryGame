@@ -15,10 +15,10 @@ class EmojiCollectionViewCell: UICollectionViewCell {
     var cubeEmoji=""
     var isFacedUp=false
     var isMatched=false
-    
-    func setMatched()
     {
-        isHidden=self.isMatched
+        didSet{
+            isUserInteractionEnabled = !isMatched
+        }
     }
     
     func setFacedUp()
@@ -30,7 +30,7 @@ class EmojiCollectionViewCell: UICollectionViewCell {
         }
         else
         {
-            emojiCell.backgroundColor=#colorLiteral(red: 1, green: 0, blue: 0.2955140769, alpha: 1)
+            emojiCell.backgroundColor=#colorLiteral(red: 1, green: 0, blue: 0.4, alpha: 1)
             emojiCell.text=""
         }
     }

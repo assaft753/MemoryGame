@@ -9,6 +9,20 @@
 import UIKit
 
 class GameBoardViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
+    var userName:String?
+    let TIME_LEFT = 20
+    var timeLeft=0
+    
+    @IBOutlet weak var timerLabel: UILabel!{
+        didSet{
+            timerLabel.text = "\(TIME_LEFT)"
+        }
+    }
+    @IBOutlet weak var userNameLabel: UILabel!{
+        didSet{
+            userNameLabel.text = userName
+        }
+    }
     @IBOutlet weak var gameBoardCollectionView: UICollectionView!
     let MARGIN:CGFloat = 5
     var allEmojis = ["😀","😇","😎","😈","🙀","👶","🙉","🍔","🎮","🥇"]
@@ -25,10 +39,12 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
             pairsCounter=sections*rows/2
         }
     }
+    
     weak var prevCell:EmojiCollectionViewCell?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.timeLeft=self.TIME_LEFT
         for i in 0..<pairsCounter
         {
             emojis.append(allEmojis[i])
@@ -36,6 +52,28 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
         emojis=emojis+emojis
         gameBoardCollectionView.delegate=self
         gameBoardCollectionView.dataSource=self
+    }
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true)
+        {
+            [weak self] timer in
+            self!.timeLeft-=1
+            self!.timerLabel.text = "\(self!.timeLeft)"
+            if self!.timeLeft == 0
+            {
+                timer.invalidate()
+                let alert = UIAlertController(title: "Memory Game", message: "You Lose", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default)
+                {
+                    action in
+                    self!.performSegue(withIdentifier: "Game Over", sender: nil)
+                })
+                self?.present(alert, animated: true, completion: nil)
+            }
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -61,6 +99,7 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell=collectionView.cellForItem(at: indexPath) as! EmojiCollectionViewCell
+        
         self.compareHandler(compareTo: cell,with: indexPath)
         
     }
@@ -90,7 +129,6 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
         for emojicell in emojiCells
         {
             emojicell.setFacedUp()
-            emojicell.setMatched()
         }
         if prevCell == nil
         {

@@ -17,8 +17,9 @@
 		7060651B2070D51E001D6FE4 /* GameBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7060651A2070D51E001D6FE4 /* GameBoardViewController.swift */; };
 		7060651D2070D7DA001D6FE4 /* EmojiCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7060651C2070D7DA001D6FE4 /* EmojiCollectionViewCell.swift */; };
 		7066B639207122F7006931ED /* Difficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7066B638207122F7006931ED /* Difficulty.swift */; };
-		7066B63B2071277B006931ED /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7066B63A2071277B006931ED /* MainViewController.swift */; };
 		7066B63D20712E86006931ED /* FinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7066B63C20712E86006931ED /* FinishViewController.swift */; };
+		70CEA88F2072276E00DAF868 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEA88E2072276E00DAF868 /* MainViewController.swift */; };
+		70CEA8912072280C00DAF868 /* DifficultyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEA8902072280C00DAF868 /* DifficultyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,8 +56,9 @@
 		7060651A2070D51E001D6FE4 /* GameBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardViewController.swift; sourceTree = "<group>"; };
 		7060651C2070D7DA001D6FE4 /* EmojiCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiCollectionViewCell.swift; sourceTree = "<group>"; };
 		7066B638207122F7006931ED /* Difficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difficulty.swift; sourceTree = "<group>"; };
-		7066B63A2071277B006931ED /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		7066B63C20712E86006931ED /* FinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishViewController.swift; sourceTree = "<group>"; };
+		70CEA88E2072276E00DAF868 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		70CEA8902072280C00DAF868 /* DifficultyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,8 +118,9 @@
 				7002027F20693DDD00C4E17B /* LaunchScreen.storyboard */,
 				7002028220693DDD00C4E17B /* Info.plist */,
 				7002027A20693DDD00C4E17B /* MemoryGame.xcdatamodeld */,
-				7066B63A2071277B006931ED /* MainViewController.swift */,
 				7066B63C20712E86006931ED /* FinishViewController.swift */,
+				70CEA88E2072276E00DAF868 /* MainViewController.swift */,
+				70CEA8902072280C00DAF868 /* DifficultyViewController.swift */,
 			);
 			path = MemoryGame;
 			sourceTree = "<group>";
@@ -277,10 +280,11 @@
 				7002027420693DDD00C4E17B /* AppDelegate.swift in Sources */,
 				7002027C20693DDD00C4E17B /* MemoryGame.xcdatamodeld in Sources */,
 				7066B639207122F7006931ED /* Difficulty.swift in Sources */,
+				70CEA8912072280C00DAF868 /* DifficultyViewController.swift in Sources */,
 				7066B63D20712E86006931ED /* FinishViewController.swift in Sources */,
-				7066B63B2071277B006931ED /* MainViewController.swift in Sources */,
 				7060651B2070D51E001D6FE4 /* GameBoardViewController.swift in Sources */,
 				7060651D2070D7DA001D6FE4 /* EmojiCollectionViewCell.swift in Sources */,
+				70CEA88F2072276E00DAF868 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
