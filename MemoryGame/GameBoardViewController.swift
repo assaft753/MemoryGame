@@ -69,7 +69,7 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
                 alert.addAction(UIAlertAction(title: "OK", style: .default)
                 {
                     action in
-                    self!.performSegue(withIdentifier: "Game Over", sender: nil)
+                    self!.performSegue(withIdentifier: "Choose Difficulty", sender: nil)
                 })
                 self?.present(alert, animated: true, completion: nil)
             }
@@ -114,8 +114,14 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let endGameController=segue.destination as! FinishViewController
-        endGameController.difficulty=self.difficulty
+        if let endGameController=segue.destination as? FinishViewController{
+            endGameController.difficulty=self.difficulty
+            endGameController.userName = self.userName
+        }
+        else if let difficultyController=segue.destination as? DifficultyViewController{
+            difficultyController.userName = self.userName
+            
+        }
     }
     
     private func isGameOver()->Bool

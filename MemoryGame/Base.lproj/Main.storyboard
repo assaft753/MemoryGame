@@ -84,7 +84,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ryg-zT-goD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="gsU-nO-qFz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-60" y="492.50374812593708"/>
+            <point key="canvasLocation" x="-74" y="-20"/>
         </scene>
         <!--Difficulty View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -164,7 +164,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="782" y="494"/>
+            <point key="canvasLocation" x="858" y="727"/>
         </scene>
         <!--Game Board View Controller-->
         <scene sceneID="Bwp-94-zgN">
@@ -253,11 +253,12 @@
                         <outlet property="timerLabel" destination="LeQ-yq-Rc2" id="Llt-DI-ZP2"/>
                         <outlet property="userNameLabel" destination="Hni-kW-LR4" id="dwH-sX-gFR"/>
                         <segue destination="8B2-Zf-sau" kind="show" identifier="Game Over" id="wBD-6j-Ijy"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="Choose Difficulty" id="QEf-eK-71q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nDh-cl-K0P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1594" y="582"/>
+            <point key="canvasLocation" x="1796" y="-20"/>
         </scene>
         <!--Finish View Controller-->
         <scene sceneID="Jw6-pm-rl7">
@@ -292,10 +293,19 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Won" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QO5-PO-se4">
+                                <rect key="frame" x="127" y="73.5" width="121.5" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.89411764709999997" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="cLh-8U-6nK" firstAttribute="centerX" secondItem="GGy-al-t9W" secondAttribute="centerX" id="1MR-lH-vCB"/>
+                            <constraint firstItem="GGy-al-t9W" firstAttribute="bottom" secondItem="QO5-PO-se4" secondAttribute="bottom" constant="555" id="9Yc-6Y-pSk"/>
+                            <constraint firstItem="QO5-PO-se4" firstAttribute="centerX" secondItem="GGy-al-t9W" secondAttribute="centerX" id="bLb-cT-hHz"/>
+                            <constraint firstItem="QO5-PO-se4" firstAttribute="top" secondItem="GGy-al-t9W" secondAttribute="top" constant="53.5" id="ch4-6j-ZD2"/>
                             <constraint firstItem="cLh-8U-6nK" firstAttribute="centerY" secondItem="GGy-al-t9W" secondAttribute="centerY" id="vIf-qf-hB3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GGy-al-t9W"/>
@@ -303,11 +313,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qJU-ex-iVK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1196" y="-243"/>
+            <point key="canvasLocation" x="3046" y="726"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="UPj-uy-bvh"/>
-        <segue reference="wW2-qR-GZy"/>
+        <segue reference="bVp-WW-xj7"/>
+        <segue reference="Vg2-08-9U7"/>
     </inferredMetricsTieBreakers>
 </document>
