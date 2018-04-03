@@ -10,6 +10,12 @@ import UIKit
 
 class DifficultyViewController: UIViewController {
     
+    @IBOutlet weak var easyButton: UIButton!
+    @IBOutlet weak var mediumButton: UIButton!
+    @IBOutlet weak var hardButton: UIButton!
+    
+    
+    
     @IBOutlet weak var userNameLabel: UILabel!
     {
         didSet
@@ -20,6 +26,9 @@ class DifficultyViewController: UIViewController {
     var userName:String?
     override func viewDidLoad() {
         super.viewDidLoad()
+        easyButton.layer.cornerRadius = 10
+        mediumButton.layer.cornerRadius = 10
+        hardButton.layer.cornerRadius = 10
     }
     
     

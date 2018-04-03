@@ -10,7 +10,7 @@ import UIKit
 
 class GameBoardViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
     var userName:String?
-    let TIME_LEFT = 20
+    let TIME_LEFT = 60
     var timeLeft=0
     
     @IBOutlet weak var timerLabel: UILabel!{
@@ -42,6 +42,9 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
     
     weak var prevCell:EmojiCollectionViewCell?
     
+    @IBAction func backaButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "Choose Difficulty", sender: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.timeLeft=self.TIME_LEFT
@@ -53,6 +56,7 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
         gameBoardCollectionView.delegate=self
         gameBoardCollectionView.dataSource=self
     }
+    
     
     override func viewDidAppear(_ animated: Bool)
     {
@@ -110,7 +114,6 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
         {
             performSegue(withIdentifier: "Game Over", sender: nil)
         }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -132,10 +135,6 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
     private func compareHandler(compareTo cell:EmojiCollectionViewCell,with indexPath:IndexPath)
     {
         cell.isFacedUp=true
-        for emojicell in emojiCells
-        {
-            emojicell.setFacedUp()
-        }
         if prevCell == nil
         {
             prevCell=cell
@@ -148,15 +147,32 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
                 self.prevCell?.isMatched=true
                 cell.isMatched=true
                 self.pairsCounter-=1
+                self.prevCell=nil
                 segueTo()
             }
             else
             {
-                self.prevCell?.isFacedUp=false
-                cell.isFacedUp=false
+                enableUI(false)
+                DispatchQueue.global(qos: .background).asyncAfter(deadline: DispatchTime.now()+1){
+                    DispatchQueue.main.sync {
+                        self.prevCell?.isFacedUp=false
+                        cell.isFacedUp=false
+                        self.prevCell=nil
+                        self.enableUI(true)
+                    }
+                    
+                }
+                
             }
-            self.prevCell=nil
             
+        }
+    }
+    
+    func enableUI(_ toEnable:Bool)
+    {
+        for emojicell in emojiCells
+        {
+            emojicell.setCellEnable(toEnable)
         }
     }
 }

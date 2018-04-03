@@ -14,6 +14,21 @@ class EmojiCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var emojiCell: UILabel!
     var cubeEmoji=""
     var isFacedUp=false
+    {
+        didSet
+        {
+            if self.isFacedUp
+            {
+                emojiCell.backgroundColor=UIColor.clear
+                emojiCell.text=cubeEmoji
+            }
+            else
+            {
+                emojiCell.backgroundColor=#colorLiteral(red: 1, green: 0, blue: 0.4, alpha: 1)
+                emojiCell.text=""
+            }
+        }
+    }
     var isMatched=false
     {
         didSet{
@@ -21,17 +36,11 @@ class EmojiCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func setFacedUp()
+    func setCellEnable(_ toEnable:Bool)
     {
-        if self.isFacedUp
+        if !isMatched
         {
-            emojiCell.backgroundColor=UIColor.clear
-            emojiCell.text=cubeEmoji
-        }
-        else
-        {
-            emojiCell.backgroundColor=#colorLiteral(red: 1, green: 0, blue: 0.4, alpha: 1)
-            emojiCell.text=""
+            isUserInteractionEnabled = toEnable
         }
     }
     
