@@ -13,9 +13,6 @@ class DifficultyViewController: UIViewController {
     @IBOutlet weak var easyButton: UIButton!
     @IBOutlet weak var mediumButton: UIButton!
     @IBOutlet weak var hardButton: UIButton!
-    
-    
-    
     @IBOutlet weak var userNameLabel: UILabel!
     {
         didSet
@@ -30,7 +27,6 @@ class DifficultyViewController: UIViewController {
         mediumButton.layer.cornerRadius = 10
         hardButton.layer.cornerRadius = 10
     }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let gameBoardViewController=segue.destination as! GameBoardViewController
