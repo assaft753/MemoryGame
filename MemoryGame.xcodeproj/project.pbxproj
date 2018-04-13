@@ -109,18 +109,12 @@
 		7002027220693DDD00C4E17B /* MemoryGame */ = {
 			isa = PBXGroup;
 			children = (
-				7066B638207122F7006931ED /* Difficulty.swift */,
-				7002027320693DDD00C4E17B /* AppDelegate.swift */,
-				7002027720693DDD00C4E17B /* Main.storyboard */,
-				7060651A2070D51E001D6FE4 /* GameBoardViewController.swift */,
-				7060651C2070D7DA001D6FE4 /* EmojiCollectionViewCell.swift */,
-				7002027D20693DDD00C4E17B /* Assets.xcassets */,
-				7002027F20693DDD00C4E17B /* LaunchScreen.storyboard */,
 				7002028220693DDD00C4E17B /* Info.plist */,
-				7002027A20693DDD00C4E17B /* MemoryGame.xcdatamodeld */,
-				7066B63C20712E86006931ED /* FinishViewController.swift */,
-				70CEA88E2072276E00DAF868 /* MainViewController.swift */,
-				70CEA8902072280C00DAF868 /* DifficultyViewController.swift */,
+				70E21A1E2080E57A009C683D /* Enums */,
+				70E21A1F2080E597009C683D /* Supporting Files */,
+				7002027720693DDD00C4E17B /* Main.storyboard */,
+				70E21A1C2080E54F009C683D /* View Controllers */,
+				70E21A1D2080E56B009C683D /* View Cells */,
 			);
 			path = MemoryGame;
 			sourceTree = "<group>";
@@ -141,6 +135,44 @@
 				7002029820693DDD00C4E17B /* Info.plist */,
 			);
 			path = MemoryGameUITests;
+			sourceTree = "<group>";
+		};
+		70E21A1C2080E54F009C683D /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7060651A2070D51E001D6FE4 /* GameBoardViewController.swift */,
+				7066B63C20712E86006931ED /* FinishViewController.swift */,
+				70CEA88E2072276E00DAF868 /* MainViewController.swift */,
+				70CEA8902072280C00DAF868 /* DifficultyViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		70E21A1D2080E56B009C683D /* View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				7060651C2070D7DA001D6FE4 /* EmojiCollectionViewCell.swift */,
+			);
+			path = "View Cells";
+			sourceTree = "<group>";
+		};
+		70E21A1E2080E57A009C683D /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				7066B638207122F7006931ED /* Difficulty.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		70E21A1F2080E597009C683D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7002027320693DDD00C4E17B /* AppDelegate.swift */,
+				7002027D20693DDD00C4E17B /* Assets.xcassets */,
+				7002027F20693DDD00C4E17B /* LaunchScreen.storyboard */,
+				7002027A20693DDD00C4E17B /* MemoryGame.xcdatamodeld */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
