@@ -10,21 +10,21 @@ import UIKit
 
 class ImageCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var emojiCell: UILabel!
-    var cubeEmoji:String!
+    @IBOutlet weak var imageCell: UIImageView!
+    var cubeImage:UIImage!
     var isFacedUp:Bool!
     {
         didSet
         {
             if self.isFacedUp
             {
-                emojiCell.backgroundColor=UIColor.clear
-                emojiCell.text=cubeEmoji
+                imageCell.backgroundColor=UIColor.clear
+                imageCell.image=cubeImage
             }
             else
             {
-                emojiCell.backgroundColor=#colorLiteral(red: 1, green: 0, blue: 0.4, alpha: 1)
-                emojiCell.text=""
+                imageCell.backgroundColor=#colorLiteral(red: 1, green: 0, blue: 0.4, alpha: 1)
+                imageCell.image=nil
             }
         }
     }
