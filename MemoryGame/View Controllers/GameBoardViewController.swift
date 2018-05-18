@@ -22,14 +22,15 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
     }
     @IBOutlet weak var gameBoardCollectionView: UICollectionView!
     let MARGIN:CGFloat = 5
-    var allEmojis = ["😀","😇","😎","😈","🙀","👶","🙉","🍔","🎮","🥇"]
-    var emojis:[String]=[]
-    var emojiCells:[EmojiCollectionViewCell]=[]
+    var allImages =  [#imageLiteral(resourceName: "Bear"), #imageLiteral(resourceName: "Dog"), #imageLiteral(resourceName: "Monkey"), #imageLiteral(resourceName: "Simba"), #imageLiteral(resourceName: "Butterfly"), #imageLiteral(resourceName: "Dolphin"), #imageLiteral(resourceName: "Duck"), #imageLiteral(resourceName: "Kangaroo"), #imageLiteral(resourceName: "Koala"), #imageLiteral(resourceName: "Tiger")]
+    //var allImages = ["😀","😇","😎","😈","🙀","👶","🙉","🍔","🎮","🥇"]
+    var images:[UIImage]=[]
+    var imageCells:[ImageCollectionViewCell]=[]
     var pairsCounter=0
     var sections=0
     var rows=0
     var difficulty:Difficulty?
-    weak var prevCell:EmojiCollectionViewCell?
+    weak var prevCell:ImageCollectionViewCell?
     
     func initiateGameBoardValues()
     {
@@ -48,9 +49,9 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
         initiateGameBoardValues()
         for i in 0..<pairsCounter
         {
-            emojis.append(allEmojis[i])
+            images.append(allImages[i])
         }
-        emojis=emojis+emojis
+        images=images+images
         gameBoardCollectionView.delegate=self
         gameBoardCollectionView.dataSource=self
     }
@@ -89,11 +90,11 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell=collectionView.dequeueReusableCell(withReuseIdentifier: "Emoji Cell", for: indexPath) as! EmojiCollectionViewCell
-        let random=Int(arc4random_uniform(UInt32(emojis.count)))
-        cell.cubeEmoji=emojis[random]
-        emojis.remove(at: random)
-        emojiCells.append(cell)
+        let cell=collectionView.dequeueReusableCell(withReuseIdentifier: "Emoji Cell", for: indexPath) as! ImageCollectionViewCell
+        let random=Int(arc4random_uniform(UInt32(images.count)))
+        cell.cubeImage=images[random]
+        images.remove(at: random)
+        imageCells.append(cell)
         cell.isFacedUp=false
         cell.isMatched=false
         return cell
@@ -108,7 +109,7 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell=collectionView.cellForItem(at: indexPath) as! EmojiCollectionViewCell
+        let cell=collectionView.cellForItem(at: indexPath) as! ImageCollectionViewCell
         
         self.compareHandler(compareTo: cell,with: indexPath)
         
@@ -127,7 +128,7 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
         return self.pairsCounter > 0 ? false : true
     }
     
-    private func compareHandler(compareTo cell:EmojiCollectionViewCell,with indexPath:IndexPath)
+    private func compareHandler(compareTo cell:ImageCollectionViewCell,with indexPath:IndexPath)
     {
         cell.isFacedUp=true
         if prevCell == nil
@@ -165,7 +166,7 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
     
     func enableUI(_ toEnable:Bool)
     {
-        for emojicell in emojiCells
+        for emojicell in imageCells
         {
             emojicell.setCellEnable(toEnable)
         }
