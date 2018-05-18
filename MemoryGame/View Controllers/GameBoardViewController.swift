@@ -21,7 +21,7 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
         }
     }
     @IBOutlet weak var gameBoardCollectionView: UICollectionView!
-    let MARGIN:CGFloat = 5
+    
     var allImages =  [#imageLiteral(resourceName: "Bear"), #imageLiteral(resourceName: "Dog"), #imageLiteral(resourceName: "Monkey"), #imageLiteral(resourceName: "Simba"), #imageLiteral(resourceName: "Butterfly"), #imageLiteral(resourceName: "Dolphin"), #imageLiteral(resourceName: "Duck"), #imageLiteral(resourceName: "Kangaroo"), #imageLiteral(resourceName: "Koala"), #imageLiteral(resourceName: "Tiger")]
     //var allImages = ["😀","😇","😎","😈","🙀","👶","🙉","🍔","🎮","🥇"]
     var images:[UIImage]=[]
@@ -90,7 +90,7 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell=collectionView.dequeueReusableCell(withReuseIdentifier: "Emoji Cell", for: indexPath) as! ImageCollectionViewCell
+        let cell=collectionView.dequeueReusableCell(withReuseIdentifier: "Image Cell", for: indexPath) as! ImageCollectionViewCell
         let random=Int(arc4random_uniform(UInt32(images.count)))
         cell.cubeImage=images[random]
         images.remove(at: random)
@@ -105,7 +105,7 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
     }
     
     @objc func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(MARGIN, MARGIN, MARGIN, MARGIN)
+        return UIEdgeInsetsMake(StaticValues.MARGIN, StaticValues.MARGIN, StaticValues.MARGIN, StaticValues.MARGIN)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -138,7 +138,7 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
         else if let prevIndexPath=self.gameBoardCollectionView.indexPath(for: prevCell!),prevIndexPath != indexPath
         {
             
-            if self.prevCell?.cubeEmoji == cell.cubeEmoji
+            if self.prevCell?.cubeImage == cell.cubeImage
             {
                 self.prevCell?.isMatched=true
                 cell.isMatched=true
