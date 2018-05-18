@@ -344,6 +344,14 @@
                                     <constraint firstAttribute="height" constant="129" id="bmV-Ry-tgi"/>
                                 </constraints>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EmX-1o-Cxl" userLabel="nn">
+                                <rect key="frame" x="87" y="547" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <accessibility key="accessibilityConfiguration" hint="l" identifier="l" label="l">
+                                    <accessibilityTraits key="traits" image="YES" keyboardKey="YES" staticText="YES"/>
+                                </accessibility>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.89411764709999997" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
