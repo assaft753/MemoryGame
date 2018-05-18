@@ -648,10 +648,9 @@
                                     <constraint firstAttribute="height" constant="129" id="bmV-Ry-tgi"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EmX-1o-Cxl" userLabel="nn">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="winning" translatesAutoresizingMaskIntoConstraints="NO" id="EmX-1o-Cxl" userLabel="nn">
                                 <rect key="frame" x="87" y="547" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <accessibility key="accessibilityConfiguration" hint="l" identifier="l" label="l">
                                     <accessibilityTraits key="traits" image="YES" keyboardKey="YES" staticText="YES"/>
                                 </accessibility>
@@ -660,14 +659,13 @@
                         <color key="backgroundColor" red="0.93725490199999995" green="0.89411764709999997" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="cLh-8U-6nK" firstAttribute="centerX" secondItem="GGy-al-t9W" secondAttribute="centerX" id="1MR-lH-vCB"/>
-                            <constraint firstItem="gGe-d9-1iJ" firstAttribute="centerX" secondItem="GGy-al-t9W" secondAttribute="centerX" id="7TE-JH-fco"/>
-                            <constraint firstItem="gGe-d9-1iJ" firstAttribute="leading" secondItem="GGy-al-t9W" secondAttribute="leading" constant="90" id="8CO-GE-VLz"/>
+                            <constraint firstAttribute="centerX" secondItem="GGy-al-t9W" secondAttribute="centerX" id="7TE-JH-fco"/>
+                            <constraint firstAttribute="leading" secondItem="GGy-al-t9W" secondAttribute="leading" constant="90" id="8CO-GE-VLz"/>
                             <constraint firstItem="dXz-pE-IOW" firstAttribute="centerX" secondItem="GGy-al-t9W" secondAttribute="centerX" id="MgI-3z-LKf"/>
-                            <constraint firstItem="xRt-IZ-K3a" firstAttribute="centerX" secondItem="GGy-al-t9W" secondAttribute="centerX" id="iBX-sR-H41"/>
-                            <constraint firstItem="gGe-d9-1iJ" firstAttribute="top" secondItem="xRt-IZ-K3a" secondAttribute="bottom" constant="26" id="kJB-ql-oLL"/>
+                            <constraint firstAttribute="centerX" secondItem="GGy-al-t9W" secondAttribute="centerX" id="iBX-sR-H41"/>
                             <constraint firstItem="dXz-pE-IOW" firstAttribute="top" secondItem="GGy-al-t9W" secondAttribute="top" constant="38" id="ryT-WF-CKz"/>
                             <constraint firstItem="cLh-8U-6nK" firstAttribute="centerY" secondItem="GGy-al-t9W" secondAttribute="centerY" constant="10" id="vIf-qf-hB3"/>
-                            <constraint firstItem="xRt-IZ-K3a" firstAttribute="top" secondItem="dXz-pE-IOW" secondAttribute="bottom" constant="43" id="yAW-zV-9IR"/>
+                            <constraint firstAttribute="top" secondItem="dXz-pE-IOW" secondAttribute="bottom" constant="43" id="yAW-zV-9IR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GGy-al-t9W"/>
                     </view>
