@@ -12,29 +12,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="1IN-78-wlP">
-            <objects>
-                <viewController id="s4R-Y7-9Dn" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Z34-Wp-ObL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Je9-Ba-8gC">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <viewLayoutGuide key="safeArea" id="O38-LB-env"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="7Pf-6L-x9O"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hj2-hF-Bcb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1112" y="-48"/>
-        </scene>
         <!--Main View Controller-->
         <scene sceneID="hz6-pe-Pdg">
             <objects>
@@ -458,25 +435,27 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Emoji Cell" id="Gt6-Y0-hFO" customClass="EmojiCollectionViewCell" customModule="MemoryGame" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Emoji Cell" id="Gt6-Y0-hFO" customClass="ImageCollectionViewCell" customModule="MemoryGame" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="62" height="82"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="62" height="82"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWa-iX-33X">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wzb-aW-i7V">
                                                     <rect key="frame" x="0.0" y="0.0" width="62" height="82"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="1" green="0.0" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="45"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                </imageView>
                                             </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="Wzb-aW-i7V" firstAttribute="leading" secondItem="Gt6-Y0-hFO" secondAttribute="leading" id="8gJ-Lz-ZdW"/>
+                                            <constraint firstItem="Wzb-aW-i7V" firstAttribute="centerX" secondItem="Gt6-Y0-hFO" secondAttribute="centerX" id="G1B-Ta-5uG"/>
+                                            <constraint firstItem="Wzb-aW-i7V" firstAttribute="centerY" secondItem="Gt6-Y0-hFO" secondAttribute="centerY" id="Jd4-O2-3aR"/>
+                                            <constraint firstAttribute="bottom" secondItem="Wzb-aW-i7V" secondAttribute="bottom" id="tEO-aH-Djw"/>
+                                        </constraints>
                                         <connections>
-                                            <outlet property="emojiCell" destination="aWa-iX-33X" id="wOh-dQ-EK4"/>
+                                            <outlet property="imageCell" destination="Wzb-aW-i7V" id="z2z-JI-yTs"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
