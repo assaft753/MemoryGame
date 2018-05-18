@@ -23,29 +23,7 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Je9-Ba-8gC">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="title" translatesAutoresizingMaskIntoConstraints="NO" id="TwY-L4-Nhf">
-                                        <rect key="frame" x="35.666666666666657" y="80" width="343" height="84"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="343" id="0nY-EJ-r14"/>
-                                            <constraint firstAttribute="height" constant="84" id="85l-54-hzI"/>
-                                        </constraints>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="ylV-h9-dUU">
-                                        <rect key="frame" x="84.666666666666686" y="184" width="240" height="128"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="240" id="4Nh-yj-osh"/>
-                                            <constraint firstAttribute="height" constant="128" id="oFO-3q-xNA"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.89411764709999997" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="ylV-h9-dUU" firstAttribute="centerX" secondItem="O38-LB-env" secondAttribute="centerX" constant="-2.5" id="YPp-cl-O6n"/>
-                                    <constraint firstItem="TwY-L4-Nhf" firstAttribute="top" secondItem="O38-LB-env" secondAttribute="top" constant="60" id="cec-Xz-u2K"/>
-                                    <constraint firstItem="ylV-h9-dUU" firstAttribute="top" secondItem="TwY-L4-Nhf" secondAttribute="bottom" constant="20" id="dJK-Wz-To3"/>
-                                    <constraint firstItem="TwY-L4-Nhf" firstAttribute="centerX" secondItem="O38-LB-env" secondAttribute="centerX" id="uen-3C-ILT"/>
-                                </constraints>
                                 <viewLayoutGuide key="safeArea" id="O38-LB-env"/>
                             </view>
                         </subviews>
