@@ -24,18 +24,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" ambiguous="YES" restorationIdentifier="playBtn" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nO6-KQ-bSP">
-                                        <rect key="frame" x="89.666666666666742" y="552" width="235" height="39"/>
-                                        <color key="backgroundColor" red="1" green="0.0" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="39" id="GFM-O9-bup"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="235" id="c0g-JN-j0a"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                        <state key="normal" title="Play">
-                                            <color key="titleColor" red="0.93725490199999995" green="0.89411764709999997" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="title" translatesAutoresizingMaskIntoConstraints="NO" id="TwY-L4-Nhf">
                                         <rect key="frame" x="35.666666666666657" y="80" width="343" height="84"/>
                                         <constraints>
@@ -53,7 +41,6 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.89411764709999997" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="nO6-KQ-bSP" firstAttribute="centerX" secondItem="O38-LB-env" secondAttribute="centerX" id="T4h-ir-Zej"/>
                                     <constraint firstItem="ylV-h9-dUU" firstAttribute="centerX" secondItem="O38-LB-env" secondAttribute="centerX" constant="-2.5" id="YPp-cl-O6n"/>
                                     <constraint firstItem="TwY-L4-Nhf" firstAttribute="top" secondItem="O38-LB-env" secondAttribute="top" constant="60" id="cec-Xz-u2K"/>
                                     <constraint firstItem="ylV-h9-dUU" firstAttribute="top" secondItem="TwY-L4-Nhf" secondAttribute="bottom" constant="20" id="dJK-Wz-To3"/>
