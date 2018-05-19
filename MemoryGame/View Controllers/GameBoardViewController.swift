@@ -93,6 +93,8 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
         let cell=collectionView.dequeueReusableCell(withReuseIdentifier: "Image Cell", for: indexPath) as! ImageCollectionViewCell
         let random=Int(arc4random_uniform(UInt32(images.count)))
         cell.cubeImage=images[random]
+        cell.layer.masksToBounds = true
+        cell.layer.cornerRadius = StaticValues.CARD_CORNER_RADIUS
         images.remove(at: random)
         imageCells.append(cell)
         cell.isFacedUp=false
@@ -128,9 +130,17 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
         return self.pairsCounter > 0 ? false : true
     }
     
+    private func animate(cellImageView: ImageCollectionViewCell, image:UIImage)
+    {
+        UIView.transition(with: cellImageView, duration: 0.3, options: .transitionFlipFromLeft, animations: {
+            cellImageView.cubeImage = image
+        })
+    }
+    
     private func compareHandler(compareTo cell:ImageCollectionViewCell,with indexPath:IndexPath)
     {
         cell.isFacedUp=true
+        animate(cellImageView: cell, image: cell.cubeImage)
         if prevCell == nil
         {
             prevCell=cell

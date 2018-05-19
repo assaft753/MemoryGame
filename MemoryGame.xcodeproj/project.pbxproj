@@ -23,6 +23,9 @@
 		70936D1E20AEE9C200C46CDC /* ImageUpdateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70936D1D20AEE9C200C46CDC /* ImageUpdateCollectionViewCell.swift */; };
 		70CEA88F2072276E00DAF868 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEA88E2072276E00DAF868 /* MainViewController.swift */; };
 		70CEA8912072280C00DAF868 /* DifficultyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEA8902072280C00DAF868 /* DifficultyViewController.swift */; };
+		BABC2C6320B0A5EB004C81A5 /* CustomizeCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABC2C6220B0A5EB004C81A5 /* CustomizeCardViewController.swift */; };
+		BABC2C6520B0ACF7004C81A5 /* PreviousImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABC2C6420B0ACF7004C81A5 /* PreviousImagesViewController.swift */; };
+		BABC2C6720B0B521004C81A5 /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABC2C6620B0B521004C81A5 /* HighScoreViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,9 @@
 		70936D1D20AEE9C200C46CDC /* ImageUpdateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUpdateCollectionViewCell.swift; sourceTree = "<group>"; };
 		70CEA88E2072276E00DAF868 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		70CEA8902072280C00DAF868 /* DifficultyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyViewController.swift; sourceTree = "<group>"; };
+		BABC2C6220B0A5EB004C81A5 /* CustomizeCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeCardViewController.swift; sourceTree = "<group>"; };
+		BABC2C6420B0ACF7004C81A5 /* PreviousImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousImagesViewController.swift; sourceTree = "<group>"; };
+		BABC2C6620B0B521004C81A5 /* HighScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +158,9 @@
 				70CEA88E2072276E00DAF868 /* MainViewController.swift */,
 				70CEA8902072280C00DAF868 /* DifficultyViewController.swift */,
 				70936D1920AEE38F00C46CDC /* UpdateImagesViewController.swift */,
+				BABC2C6220B0A5EB004C81A5 /* CustomizeCardViewController.swift */,
+				BABC2C6420B0ACF7004C81A5 /* PreviousImagesViewController.swift */,
+				BABC2C6620B0B521004C81A5 /* HighScoreViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -319,9 +328,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7002027420693DDD00C4E17B /* AppDelegate.swift in Sources */,
+				BABC2C6720B0B521004C81A5 /* HighScoreViewController.swift in Sources */,
 				7002027C20693DDD00C4E17B /* MemoryGame.xcdatamodeld in Sources */,
 				70936D1E20AEE9C200C46CDC /* ImageUpdateCollectionViewCell.swift in Sources */,
 				70936D1A20AEE38F00C46CDC /* UpdateImagesViewController.swift in Sources */,
+				BABC2C6520B0ACF7004C81A5 /* PreviousImagesViewController.swift in Sources */,
+				BABC2C6320B0A5EB004C81A5 /* CustomizeCardViewController.swift in Sources */,
 				7066B639207122F7006931ED /* Difficulty.swift in Sources */,
 				70CEA8912072280C00DAF868 /* DifficultyViewController.swift in Sources */,
 				7066B63D20712E86006931ED /* FinishViewController.swift in Sources */,

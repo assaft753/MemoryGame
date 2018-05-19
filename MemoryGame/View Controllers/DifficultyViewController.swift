@@ -23,9 +23,9 @@ class DifficultyViewController: UIViewController {
     var userName:String?
     override func viewDidLoad() {
         super.viewDidLoad()
-        easyButton.layer.cornerRadius = 10
-        mediumButton.layer.cornerRadius = 10
-        hardButton.layer.cornerRadius = 10
+        easyButton.layer.cornerRadius = StaticValues.CORNER_RADIUS_BTN
+        mediumButton.layer.cornerRadius = StaticValues.CORNER_RADIUS_BTN
+        hardButton.layer.cornerRadius = StaticValues.CORNER_RADIUS_BTN
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

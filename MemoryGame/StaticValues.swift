@@ -14,4 +14,6 @@ struct StaticValues {
     static let recordsNameMemory = "records"
     static let defaultImages = [#imageLiteral(resourceName: "Bear"), #imageLiteral(resourceName: "Dog"), #imageLiteral(resourceName: "Monkey"), #imageLiteral(resourceName: "Simba"), #imageLiteral(resourceName: "Butterfly"), #imageLiteral(resourceName: "Dolphin"), #imageLiteral(resourceName: "Duck"), #imageLiteral(resourceName: "Kangaroo"), #imageLiteral(resourceName: "Koala"), #imageLiteral(resourceName: "Tiger")]
     static let MARGIN:CGFloat = 5
+    static let CORNER_RADIUS_BTN = CGFloat(8)
+    static let CARD_CORNER_RADIUS = CGFloat(5)
 }
