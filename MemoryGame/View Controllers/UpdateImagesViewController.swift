@@ -12,18 +12,22 @@ class UpdateImagesViewController: UIViewController,UICollectionViewDelegate,UICo
     var currentImages:[UIImage]!
     override func viewDidLoad() {
         super.viewDidLoad()
-        reloadImages()
         self.imageCollection.dataSource=self
         self.imageCollection.delegate=self
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        reloadImages()
+    }
     func reloadImages() {
-        if let data = UserDefaults.standard.object(forKey:StaticValues.imagesNameMemory) as? Data,
+        if let data = UserDefaults.standard.object(forKey:StaticValues.IMAGES_NAME_FILE) as? Data,
             let images = NSKeyedUnarchiver.unarchiveObject(with: data) as? [UIImage] {
             self.currentImages=images
         }
         else
         {
-            self.currentImages=StaticValues.defaultImages
+            self.currentImages=StaticValues.DEFAULTS_IMAGES
         }
     }
     

@@ -13,7 +13,6 @@ class PreviousImagesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        chooseBtn.layer.cornerRadius = StaticValues.CORNER_RADIUS_BTN
     }
 
 }

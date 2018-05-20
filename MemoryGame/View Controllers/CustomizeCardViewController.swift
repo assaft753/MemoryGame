@@ -11,16 +11,14 @@ import UIKit
 class CustomizeCardViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var chooseBtn: UIButton!
-    
-    let options = ["Gallery", "Previous images", "Download URL", "Take a picture"]
     var chooseOption: String!
+    let options = StaticValues.OPTIONS_PICKER
     
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.dataSource = self
         picker.delegate = self
         chooseBtn.layer.cornerRadius = StaticValues.CORNER_RADIUS_BTN
-        
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -46,7 +44,7 @@ class CustomizeCardViewController: UIViewController, UIPickerViewDataSource, UIP
             // open gallery
             break
         case "Previous images":
-            performSegue(withIdentifier: "Previous images", sender: nil)
+            performSegue(withIdentifier: "Previous Images", sender: nil)
             break
         case "Download URL":
             // open textbox to insert URL
