@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nYi-bD-kcm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gaJ-Gc-CUP">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -47,7 +47,7 @@
                                     <color key="titleColor" red="0.93725490199999995" green="0.89411764709999997" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Qmz-cd-WYl" kind="show" id="0vW-4V-Lba"/>
+                                    <action selector="changeImages:" destination="gaJ-Gc-CUP" eventType="touchUpInside" id="VVp-H1-zD2"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="title" translatesAutoresizingMaskIntoConstraints="NO" id="mHB-Yk-hHE">
@@ -99,11 +99,12 @@
                         <outlet property="customizeCardBtn" destination="nHd-z0-Z7D" id="yiq-vX-B4P"/>
                         <outlet property="highScoreBtn" destination="iWZ-ax-HD8" id="9LC-FD-a7V"/>
                         <outlet property="playBtn" destination="9md-AM-PcN" id="SoT-t4-t17"/>
+                        <segue destination="h8T-n9-IfN" kind="show" identifier="Customize Images" id="qlp-cS-5ba"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ryg-zT-goD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-114.49275362318842" y="-67.663043478260875"/>
+            <point key="canvasLocation" x="-120" y="-68"/>
         </scene>
         <!--Update Images View Controller-->
         <scene sceneID="K1Q-1h-y95">
@@ -124,6 +125,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <state key="normal" title="👈🏾"/>
+                                <connections>
+                                    <action selector="backButton:" destination="Qmz-cd-WYl" eventType="touchUpInside" id="s6e-Gt-eTu"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select image:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hkm-vA-0ur">
                                 <rect key="frame" x="20" y="175" width="177" height="34"/>
@@ -189,6 +193,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Qzp-pd-egb"/>
                     </view>
+                    <navigationItem key="navigationItem" id="zUX-Y2-AQj"/>
                     <connections>
                         <outlet property="imageCollection" destination="IS0-S2-gYb" id="JLc-2N-FcI"/>
                         <segue destination="1w4-4M-x8l" kind="presentation" identifier="Change Image" id="3yg-uE-zMe"/>
@@ -196,7 +201,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BYM-1x-qSe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-114" y="660"/>
+            <point key="canvasLocation" x="721.73913043478262" y="659.51086956521749"/>
         </scene>
         <!--Customize Card View Controller-->
         <scene sceneID="yjh-xQ-i6S">
@@ -226,7 +231,6 @@
                                 </state>
                                 <connections>
                                     <action selector="onClickChooseBtn:" destination="nYi-bD-kcm" eventType="touchUpInside" id="7L7-oU-e00"/>
-                                    <segue destination="hsT-zM-FW6" kind="show" identifier="Previous Images" id="Wye-gF-8lo"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="customize_cards" translatesAutoresizingMaskIntoConstraints="NO" id="odp-U2-N7l">
@@ -240,6 +244,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <state key="normal" title="👈🏾"/>
+                                <connections>
+                                    <action selector="backButton:" destination="nYi-bD-kcm" eventType="touchUpInside" id="gh1-Hg-QkS"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.89411764709999997" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -261,11 +268,12 @@
                     <connections>
                         <outlet property="chooseBtn" destination="jws-ix-vVk" id="HLR-Gv-RH0"/>
                         <outlet property="picker" destination="cQC-IP-RfY" id="cnE-GS-aZI"/>
+                        <segue destination="hsT-zM-FW6" kind="show" identifier="Previous Images" id="vni-Wb-gJG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GpS-ET-o7I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2028" y="660"/>
+            <point key="canvasLocation" x="2934.7826086956525" y="659.51086956521749"/>
         </scene>
         <!--Previous Images View Controller-->
         <scene sceneID="APu-ry-jeh">
@@ -281,23 +289,40 @@
                                     <constraint firstAttribute="height" constant="112" id="o9V-2W-mH9"/>
                                 </constraints>
                             </imageView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qtD-pY-oum">
-                                <rect key="frame" x="20" y="172" width="374" height="357"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qtD-pY-oum">
+                                <rect key="frame" x="20" y="172" width="374" height="544"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.89411764709999997" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mSg-Nv-uin">
-                                    <size key="itemSize" width="50" height="50"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="32" minimumInteritemSpacing="4" id="mSg-Nv-uin">
+                                    <size key="itemSize" width="72" height="97"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="t7R-Z7-NLJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Previous Image Cell" id="t7R-Z7-NLJ" customClass="ImageUpdateCollectionViewCell" customModule="MemoryGame" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="72" height="97"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="72" height="97"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dog" translatesAutoresizingMaskIntoConstraints="NO" id="Yeh-Fc-ut3">
+                                                    <rect key="frame" x="0.0" y="0.0" width="72" height="97"/>
+                                                    <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="Yeh-Fc-ut3" secondAttribute="height" multiplier="72:97" id="9LQ-p3-fLa"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="Yeh-Fc-ut3" firstAttribute="top" secondItem="t7R-Z7-NLJ" secondAttribute="top" id="3zt-63-TZc"/>
+                                            <constraint firstItem="Yeh-Fc-ut3" firstAttribute="leading" secondItem="t7R-Z7-NLJ" secondAttribute="leading" id="VIT-7b-ORp"/>
+                                            <constraint firstAttribute="bottom" secondItem="Yeh-Fc-ut3" secondAttribute="bottom" id="yD7-qG-qm5"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="Yeh-Fc-ut3" id="fqF-jU-Zfp"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -309,6 +334,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <state key="normal" title="👈🏾"/>
+                                <connections>
+                                    <action selector="backButton:" destination="hsT-zM-FW6" eventType="touchUpInside" id="elX-ya-geN"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.89411764709999997" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -318,16 +346,23 @@
                             <constraint firstItem="qtD-pY-oum" firstAttribute="leading" secondItem="7rF-uC-AKm" secondAttribute="leading" id="EFf-1R-ZmS"/>
                             <constraint firstItem="aK9-J8-TBM" firstAttribute="leading" secondItem="A0u-iR-eHU" secondAttribute="leading" constant="20" id="JwA-Rs-VFI"/>
                             <constraint firstItem="qtD-pY-oum" firstAttribute="top" secondItem="7rF-uC-AKm" secondAttribute="bottom" constant="-9" id="SpB-X3-5Ih"/>
+                            <constraint firstItem="qtD-pY-oum" firstAttribute="leading" secondItem="7rF-uC-AKm" secondAttribute="trailing" constant="-374" id="XHt-tE-zXi"/>
                             <constraint firstItem="7rF-uC-AKm" firstAttribute="centerX" secondItem="A0u-iR-eHU" secondAttribute="centerX" id="eX6-1Y-Emx"/>
+                            <constraint firstItem="A0u-iR-eHU" firstAttribute="trailing" secondItem="qtD-pY-oum" secondAttribute="trailing" constant="20" id="g8N-x5-dkH"/>
+                            <constraint firstItem="A0u-iR-eHU" firstAttribute="bottom" secondItem="qtD-pY-oum" secondAttribute="bottom" constant="20" id="h1w-2c-4ry"/>
+                            <constraint firstItem="qtD-pY-oum" firstAttribute="leading" secondItem="A0u-iR-eHU" secondAttribute="leading" constant="20" id="o56-wx-Sk8"/>
                             <constraint firstItem="A0u-iR-eHU" firstAttribute="top" secondItem="aK9-J8-TBM" secondAttribute="top" id="pTZ-bO-Z3B"/>
                             <constraint firstItem="qtD-pY-oum" firstAttribute="centerX" secondItem="A0u-iR-eHU" secondAttribute="centerX" id="rge-2a-Tef"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="A0u-iR-eHU"/>
                     </view>
+                    <connections>
+                        <outlet property="imageCollection" destination="qtD-pY-oum" id="aUY-po-05Z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CJ1-lN-q0B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2967" y="677"/>
+            <point key="canvasLocation" x="3886.9565217391309" y="659.51086956521749"/>
         </scene>
         <!--High Score View Controller-->
         <scene sceneID="KwS-ii-DM2">
@@ -405,7 +440,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kVh-ai-979" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3951" y="678"/>
+            <point key="canvasLocation" x="4857.971014492754" y="677.44565217391312"/>
         </scene>
         <!--Difficulty View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -716,7 +751,24 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kvg-d5-5ox" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="861" y="660"/>
+            <point key="canvasLocation" x="1768.1159420289857" y="659.51086956521749"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="b5w-tu-gH2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="h8T-n9-IfN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aiz-PB-ouP">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Qmz-cd-WYl" kind="relationship" relationship="rootViewController" id="PMa-Du-AUg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hk7-q2-CJc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-151" y="660"/>
         </scene>
     </scenes>
     <resources>
