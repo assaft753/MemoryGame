@@ -19,7 +19,10 @@ class MainViewController: UIViewController,UITextFieldDelegate {
         playBtn.layer.cornerRadius = StaticValues.CORNER_RADIUS_BTN
         
     }
-   
+    @IBAction func changeImages(_ sender: Any) {
+        performSegue(withIdentifier: "Customize Images", sender: nil)
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return textField.resignFirstResponder()
     }

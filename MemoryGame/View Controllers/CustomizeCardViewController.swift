@@ -11,16 +11,20 @@ import UIKit
 class CustomizeCardViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var chooseBtn: UIButton!
-    
-    let options = ["Gallery", "Previous images", "Download URL", "Take a picture"]
     var chooseOption: String!
+    let options = StaticValues.OPTIONS_PICKER
+    var imageIndex:Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.dataSource = self
         picker.delegate = self
         chooseBtn.layer.cornerRadius = StaticValues.CORNER_RADIUS_BTN
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("\(imageIndex) kkkk")
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -38,6 +42,11 @@ class CustomizeCardViewController: UIViewController, UIPickerViewDataSource, UIP
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         chooseOption = options[row]
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let prevCtrl = segue.destination as! PreviousImagesViewController
+        prevCtrl.imageIndex = sender as! Int
+    }
 
     @IBAction func onClickChooseBtn(_ sender: UIButton) {
         switch chooseOption {
@@ -46,7 +55,7 @@ class CustomizeCardViewController: UIViewController, UIPickerViewDataSource, UIP
             // open gallery
             break
         case "Previous images":
-            performSegue(withIdentifier: "Previous images", sender: nil)
+            performSegue(withIdentifier: "Previous Images", sender:imageIndex)
             break
         case "Download URL":
             // open textbox to insert URL
@@ -58,5 +67,9 @@ class CustomizeCardViewController: UIViewController, UIPickerViewDataSource, UIP
         default:
             break
         }
+    }
+    
+    @IBAction func backButton(_ sender: Any) {
+        navigationController?.dismiss(animated: true)
     }
 }
