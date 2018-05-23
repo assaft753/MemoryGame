@@ -248,6 +248,9 @@
                                     <action selector="backButton:" destination="nYi-bD-kcm" eventType="touchUpInside" id="gh1-Hg-QkS"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="win" translatesAutoresizingMaskIntoConstraints="NO" id="hcs-Fu-JCu">
+                                <rect key="frame" x="142" y="600" width="131" height="116"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.89411764709999997" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -255,7 +258,11 @@
                             <constraint firstItem="MjG-Ci-DIl" firstAttribute="top" secondItem="JnX-1o-Tdj" secondAttribute="top" id="DLm-L8-ZQl"/>
                             <constraint firstItem="odp-U2-N7l" firstAttribute="centerX" secondItem="JnX-1o-Tdj" secondAttribute="centerX" constant="0.5" id="L0X-TS-5cG"/>
                             <constraint firstItem="MjG-Ci-DIl" firstAttribute="leading" secondItem="JnX-1o-Tdj" secondAttribute="leading" constant="30" id="NKj-9O-6CS"/>
+                            <constraint firstItem="hcs-Fu-JCu" firstAttribute="centerX" secondItem="JnX-1o-Tdj" secondAttribute="centerX" id="SjR-Gl-ZNJ"/>
                             <constraint firstItem="odp-U2-N7l" firstAttribute="leading" secondItem="JnX-1o-Tdj" secondAttribute="leading" constant="30" id="aMK-nE-h2R"/>
+                            <constraint firstItem="JnX-1o-Tdj" firstAttribute="bottom" secondItem="hcs-Fu-JCu" secondAttribute="bottom" constant="20" id="bZb-6N-Jhc"/>
+                            <constraint firstItem="hcs-Fu-JCu" firstAttribute="top" secondItem="jws-ix-vVk" secondAttribute="bottom" constant="17" id="cEE-6v-Hqw"/>
+                            <constraint firstItem="hcs-Fu-JCu" firstAttribute="leading" secondItem="JnX-1o-Tdj" secondAttribute="leading" constant="142" id="eA9-kM-jvM"/>
                             <constraint firstItem="odp-U2-N7l" firstAttribute="top" secondItem="JnX-1o-Tdj" secondAttribute="top" constant="59" id="gkv-Uq-1CE"/>
                             <constraint firstItem="odp-U2-N7l" firstAttribute="centerX" secondItem="JnX-1o-Tdj" secondAttribute="centerX" constant="0.5" id="kZr-ws-RV5"/>
                             <constraint firstItem="jws-ix-vVk" firstAttribute="top" secondItem="cQC-IP-RfY" secondAttribute="bottom" constant="59" id="pIS-nS-gd8"/>
@@ -267,6 +274,7 @@
                     <navigationItem key="navigationItem" id="TTa-sC-fxz"/>
                     <connections>
                         <outlet property="chooseBtn" destination="jws-ix-vVk" id="HLR-Gv-RH0"/>
+                        <outlet property="chosenImage" destination="hcs-Fu-JCu" id="g79-de-4w5"/>
                         <outlet property="picker" destination="cQC-IP-RfY" id="cnE-GS-aZI"/>
                         <segue destination="hsT-zM-FW6" kind="show" identifier="Previous Images" id="vni-Wb-gJG"/>
                     </connections>
@@ -781,6 +789,7 @@
         <image name="customize_cards" width="772" height="132"/>
         <image name="logo" width="177" height="106"/>
         <image name="title" width="690" height="133"/>
+        <image name="win" width="400" height="345"/>
         <image name="winning" width="325" height="400"/>
     </resources>
     <inferredMetricsTieBreakers>

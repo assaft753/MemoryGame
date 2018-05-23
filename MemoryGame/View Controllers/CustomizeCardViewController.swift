@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import MobileCoreServices
 
-class CustomizeCardViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class CustomizeCardViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var chooseBtn: UIButton!
     var chooseOption: String!
     let options = StaticValues.OPTIONS_PICKER
     var imageIndex:Int!
+    @IBOutlet weak var chosenImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +55,17 @@ class CustomizeCardViewController: UIViewController, UIPickerViewDataSource, UIP
         case "Gallery":
             //get approval from user
             // open gallery
+            var imagePicker = UIImagePickerController()
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+                print("in if \n")
+                imagePicker.delegate = self
+                imagePicker.sourceType = .photoLibrary
+                imagePicker.allowsEditing = false
+                
+                self.present(imagePicker, animated: true, completion: nil)
+                print("in if \n")
+            }
+            else{ print("in else \n")}
             break
         case "Previous images":
             performSegue(withIdentifier: "Previous Images", sender:imageIndex)
@@ -72,4 +85,21 @@ class CustomizeCardViewController: UIViewController, UIPickerViewDataSource, UIP
     @IBAction func backButton(_ sender: Any) {
         navigationController?.dismiss(animated: true)
     }
+    
+    @objc func imagePickerController(_ picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
+        self.dismiss(animated: true, completion: { () -> Void in
+            
+        })
+        
+        chosenImage.image = image // need to change to nevigate to updateImagesViewController with the chosen image from gallery
+        
+//        if let updateImagesViewController=presentingViewController as? UpdateImagesViewController{
+//            updateImagesViewController.currentImages[imageIndex].im
+//        }
+        
+        navigationController?.dismiss(animated: true)
+        
+    }
+    
+    
 }
