@@ -49,21 +49,21 @@ class CustomizeCardViewController: UIViewController, UIPickerViewDataSource, UIP
         let prevCtrl = segue.destination as! PreviousImagesViewController
         prevCtrl.imageIndex = sender as! Int
     }
-
+    
     @IBAction func onClickChooseBtn(_ sender: UIButton) {
         switch chooseOption {
         case "Gallery":
             //get approval from user
             // open gallery
-            var imagePicker = UIImagePickerController()
+            let imagePicker = UIImagePickerController()
             if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
-                print("in if \n")
+                // print("in if \n")
                 imagePicker.delegate = self
                 imagePicker.sourceType = .photoLibrary
                 imagePicker.allowsEditing = false
                 
                 self.present(imagePicker, animated: true, completion: nil)
-                print("in if \n")
+                //print("in if \n")
             }
             else{ print("in else \n")}
             break
@@ -71,7 +71,36 @@ class CustomizeCardViewController: UIViewController, UIPickerViewDataSource, UIP
             performSegue(withIdentifier: "Previous Images", sender:imageIndex)
             break
         case "Download URL":
-            // open textbox to insert URL
+            weak var urlTextField:UITextField?
+            let alertDialog=UIAlertController(title: "Picture By URL", message: nil, preferredStyle: .alert)
+            let cancel=UIAlertAction(title: "Cancel", style:.cancel)
+            let ok=UIAlertAction(title: "OK", style: .default){ [weak self] uiAction  in
+                let urlText = urlTextField!.text!
+                let url=URL(string: urlText)!
+                let configuration = URLSessionConfiguration.default
+                let session = URLSession(configuration: configuration)
+                let dataTask = session.dataTask(with: url){
+                    data,respond,error in
+                    if error == nil
+                    {
+                        if let image=UIImage(data: data!)
+                        {
+                            StaticValues.AddImage(for: StaticValues.IMAGES_NAME_FILE, at: self!.imageIndex, image: image)
+                            StaticValues.AddImage(for: StaticValues.PREVIOUS_IMAGES_NAME_FILE, at: nil, image: image)
+                            self?.navigationController?.dismiss(animated: true)
+                        }
+                    }
+                }
+                dataTask.resume()
+                
+            }
+            alertDialog.addAction(ok)
+            alertDialog.addAction(cancel)
+            alertDialog.addTextField{ textField in
+                urlTextField = textField
+                urlTextField?.placeholder="URL"
+            }
+            self.present(alertDialog, animated: true)
             break
         case "Take a picture":
             //get approval from user
@@ -93,9 +122,9 @@ class CustomizeCardViewController: UIViewController, UIPickerViewDataSource, UIP
         
         chosenImage.image = image // need to change to nevigate to updateImagesViewController with the chosen image from gallery
         
-//        if let updateImagesViewController=presentingViewController as? UpdateImagesViewController{
-//            updateImagesViewController.currentImages[imageIndex].im
-//        }
+        //        if let updateImagesViewController=presentingViewController as? UpdateImagesViewController{
+        //            updateImagesViewController.currentImages[imageIndex].im
+        //        }
         
         navigationController?.dismiss(animated: true)
         

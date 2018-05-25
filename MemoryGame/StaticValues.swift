@@ -36,4 +36,42 @@ struct StaticValues {
         let data = NSKeyedArchiver.archivedData(withRootObject: images)
         UserDefaults.standard.set(data, forKey: key)
     }
+    
+    static func AddImage(for key:String,at index:Int?,image:UIImage)
+    {
+        let imagesArr:[UIImage]
+        if key == StaticValues.PREVIOUS_IMAGES_NAME_FILE
+        {
+            if var images = StaticValues.ReloadSavedImages(for: key)
+            {
+                images.append(image)
+                imagesArr = images
+                StaticValues.SaveImages(for: key, with: imagesArr)
+            }
+            else
+            {
+                imagesArr = [image]
+                StaticValues.SaveImages(for: key, with: imagesArr)
+            }
+            
+        }
+        else if key == StaticValues.IMAGES_NAME_FILE
+        {
+            if var images = StaticValues.ReloadSavedImages(for: key)
+            {
+                images[index!] = image
+                imagesArr = images
+                StaticValues.SaveImages(for: key, with: imagesArr)
+            }
+            else
+            {
+                var images = StaticValues.DEFAULTS_IMAGES
+                images[index!] = image
+                imagesArr = images
+                StaticValues.SaveImages(for: key, with: imagesArr)
+            }
+        }
+        
+    }
+    
 }
