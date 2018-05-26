@@ -12,7 +12,7 @@ import MobileCoreServices
 class CustomizeCardViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var chooseBtn: UIButton!
-    var chooseOption: String!
+    var chooseOption="Gallery"
     let options = StaticValues.OPTIONS_PICKER
     var imageIndex:Int!
     @IBOutlet weak var chosenImage: UIImageView!
@@ -26,7 +26,6 @@ class CustomizeCardViewController: UIViewController, UIPickerViewDataSource, UIP
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("\(imageIndex) kkkk")
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -53,28 +52,21 @@ class CustomizeCardViewController: UIViewController, UIPickerViewDataSource, UIP
     @IBAction func onClickChooseBtn(_ sender: UIButton) {
         switch chooseOption {
         case "Gallery":
-            //get approval from user
-            // open gallery
             let imagePicker = UIImagePickerController()
             if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
-                // print("in if \n")
                 imagePicker.delegate = self
                 imagePicker.sourceType = .photoLibrary
                 imagePicker.allowsEditing = false
-                
                 self.present(imagePicker, animated: true, completion: nil)
-                //print("in if \n")
             }
-            else{ print("in else \n")}
-            break
         case "Previous images":
             performSegue(withIdentifier: "Previous Images", sender:imageIndex)
-            break
         case "Download URL":
             weak var urlTextField:UITextField?
             let alertDialog=UIAlertController(title: "Picture By URL", message: nil, preferredStyle: .alert)
             let cancel=UIAlertAction(title: "Cancel", style:.cancel)
             let ok=UIAlertAction(title: "OK", style: .default){ [weak self] uiAction  in
+                print(self==nil)
                 let urlText = urlTextField!.text!
                 let url=URL(string: urlText)!
                 let configuration = URLSessionConfiguration.default
@@ -101,10 +93,7 @@ class CustomizeCardViewController: UIViewController, UIPickerViewDataSource, UIP
                 urlTextField?.placeholder="URL"
             }
             self.present(alertDialog, animated: true)
-            break
         case "Take a picture":
-            //get approval from user
-            // open camera
             break
         default:
             break
@@ -115,20 +104,12 @@ class CustomizeCardViewController: UIViewController, UIPickerViewDataSource, UIP
         navigationController?.dismiss(animated: true)
     }
     
+    
     @objc func imagePickerController(_ picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
-        self.dismiss(animated: true, completion: { () -> Void in
-            
-        })
-        
-        chosenImage.image = image // need to change to nevigate to updateImagesViewController with the chosen image from gallery
-        
-        //        if let updateImagesViewController=presentingViewController as? UpdateImagesViewController{
-        //            updateImagesViewController.currentImages[imageIndex].im
-        //        }
-        
-        navigationController?.dismiss(animated: true)
+        self.dismiss(animated: true)
+        self.navigationController?.dismiss(animated: true)
+        StaticValues.AddImage(for: StaticValues.IMAGES_NAME_FILE, at: self.imageIndex, image: image)
+        StaticValues.AddImage(for: StaticValues.PREVIOUS_IMAGES_NAME_FILE, at: nil, image: image)
         
     }
-    
-    
 }
