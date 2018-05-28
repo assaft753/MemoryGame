@@ -10,6 +10,7 @@ import UIKit
 class UpdateImagesViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
     @IBOutlet weak var imageCollection: UICollectionView!
     var currentImages:[UIImage]!
+    let storage = Storage()
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -27,7 +28,7 @@ class UpdateImagesViewController: UIViewController,UICollectionViewDelegate,UICo
         self.imageCollection.delegate=nil
     }
     func reloadImages() {
-        if let images = StaticValues.ReloadSavedImages(for: StaticValues.IMAGES_NAME_FILE)
+        if let images = storage.ReloadSavedImages(for: StaticValues.IMAGES_NAME_FILE)
         {
             self.currentImages=images
         }

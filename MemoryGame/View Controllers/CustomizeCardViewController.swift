@@ -12,7 +12,8 @@ import MobileCoreServices
 class CustomizeCardViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var chooseBtn: UIButton!
-    var chooseOption="Gallery"
+    let storage = Storage()
+    var chooseOption = "Gallery"
     let options = StaticValues.OPTIONS_PICKER
     var imageIndex:Int!
     @IBOutlet weak var chosenImage: UIImageView!
@@ -53,8 +54,8 @@ class CustomizeCardViewController: UIViewController, UIPickerViewDataSource, UIP
         switch chooseOption {
         case "Gallery":
             let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
             if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
-                imagePicker.delegate = self
                 imagePicker.sourceType = .photoLibrary
                 imagePicker.allowsEditing = false
                 self.present(imagePicker, animated: true, completion: nil)
@@ -63,37 +64,42 @@ class CustomizeCardViewController: UIViewController, UIPickerViewDataSource, UIP
             performSegue(withIdentifier: "Previous Images", sender:imageIndex)
         case "Download URL":
             weak var urlTextField:UITextField?
-            let alertDialog=UIAlertController(title: "Picture By URL", message: nil, preferredStyle: .alert)
-            let cancel=UIAlertAction(title: "Cancel", style:.cancel)
-            let ok=UIAlertAction(title: "OK", style: .default){ [weak self] uiAction  in
-                print(self==nil)
+            let alertDialog = UIAlertController(title: "Picture By URL", message: nil, preferredStyle: .alert)
+            let cancel = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style:.cancel)
+            let ok = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default){ [weak self] uiAction  in
                 let urlText = urlTextField!.text!
                 let url=URL(string: urlText)!
                 let configuration = URLSessionConfiguration.default
                 let session = URLSession(configuration: configuration)
                 let dataTask = session.dataTask(with: url){
-                    data,respond,error in
+                    [weak self] data,respond,error in
                     if error == nil
                     {
                         if let image=UIImage(data: data!)
                         {
-                            StaticValues.AddImage(for: StaticValues.IMAGES_NAME_FILE, at: self!.imageIndex, image: image)
-                            StaticValues.AddImage(for: StaticValues.PREVIOUS_IMAGES_NAME_FILE, at: nil, image: image)
+                            self?.storage.AddImage(for: StaticValues.IMAGES_NAME_FILE, at: self!.imageIndex, image: image)
+                            self?.storage.AddImage(for: StaticValues.PREVIOUS_IMAGES_NAME_FILE, at: nil, image: image)
                             self?.navigationController?.dismiss(animated: true)
                         }
                     }
                 }
                 dataTask.resume()
-                
             }
             alertDialog.addAction(ok)
             alertDialog.addAction(cancel)
             alertDialog.addTextField{ textField in
                 urlTextField = textField
-                urlTextField?.placeholder="URL"
+                urlTextField?.placeholder=NSLocalizedString("URL", comment: "")
             }
             self.present(alertDialog, animated: true)
         case "Take a picture":
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            if UIImagePickerController.isSourceTypeAvailable(.camera){
+                imagePicker.sourceType = .camera
+                imagePicker.allowsEditing = false
+                self.present(imagePicker, animated: true, completion: nil)
+            }
             break
         default:
             break
@@ -106,10 +112,31 @@ class CustomizeCardViewController: UIViewController, UIPickerViewDataSource, UIP
     
     
     @objc func imagePickerController(_ picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
-        self.dismiss(animated: true)
-        self.navigationController?.dismiss(animated: true)
-        StaticValues.AddImage(for: StaticValues.IMAGES_NAME_FILE, at: self.imageIndex, image: image)
-        StaticValues.AddImage(for: StaticValues.PREVIOUS_IMAGES_NAME_FILE, at: nil, image: image)
+        picker.dismiss(animated: true){ [weak self] ()  in
+            let alert = UIAlertController(title: nil, message: "please wait...", preferredStyle: .alert)
+            let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+            loadingIndicator.hidesWhenStopped = true
+            loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+            loadingIndicator.startAnimating()
+            alert.view.addSubview(loadingIndicator)
+            self?.present(alert, animated: true, completion: nil)
+            DispatchQueue.global().async { [weak self] in
+                print("add image")
+                self?.storage.AddImage(for: StaticValues.IMAGES_NAME_FILE, at: self?.imageIndex, image: image)
+                print("finish add image")
+                print("add prev")
+                self?.storage.AddImage(for: StaticValues.PREVIOUS_IMAGES_NAME_FILE, at: nil, image: image)
+                print("finish add prev")
+                DispatchQueue.main.sync { [weak self] in
+                    print("finish")
+                    self?.dismiss(animated: false)
+                    self?.navigationController?.dismiss(animated: true)
+                }
+            }
+        }
+        //self.dismiss(animated: true)
+        //
+        //
         
     }
 }

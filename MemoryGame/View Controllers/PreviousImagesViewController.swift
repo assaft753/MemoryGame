@@ -10,6 +10,7 @@ import UIKit
 
 class PreviousImagesViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
     var imageIndex:Int!
+    let storage = Storage()
     var prevoiusImages:[UIImage]!
     var currentImages:[UIImage]!
     @IBOutlet weak var imageCollection: UICollectionView!
@@ -26,7 +27,7 @@ class PreviousImagesViewController: UIViewController,UICollectionViewDelegate,UI
     }
     
     func reloadImages(for key:String)->[UIImage] {
-        if let images = StaticValues.ReloadSavedImages(for: key)
+        if let images = storage.ReloadSavedImages(for: key)
         {
             return images
         }
@@ -49,7 +50,7 @@ class PreviousImagesViewController: UIViewController,UICollectionViewDelegate,UI
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let newImage = self.prevoiusImages[indexPath.item]
         self.currentImages[self.imageIndex] = newImage
-        StaticValues.SaveImages(for: StaticValues.IMAGES_NAME_FILE,with: self.currentImages)
+        storage.SaveImages(for: StaticValues.IMAGES_NAME_FILE,with: self.currentImages)
         navigationController?.dismiss(animated: true)
     }
     

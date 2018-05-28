@@ -1,0 +1,16 @@
+/* 
+ Localizable.strings
+ MemoryGame
+ 
+ Created by Assaf Tayouri on 26/05/2018.
+ Copyright © 2018 Assaf Tayouri. All rights reserved.
+ */
+
+"welcome" = "welcome 111";
+"OK" = "OK";
+"Cancel" = "Cancel";
+"Gallery" = "Gallery";
+"Previous images" = "Previous images";
+"Download URL" = "Download URL";
+"Take a picture" = "Take a picture";
+"URL" = "URL";
