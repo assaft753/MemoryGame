@@ -15,7 +15,6 @@
 		7002028C20693DDD00C4E17B /* MemoryGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7002028B20693DDD00C4E17B /* MemoryGameTests.swift */; };
 		7002029720693DDD00C4E17B /* MemoryGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7002029620693DDD00C4E17B /* MemoryGameUITests.swift */; };
 		7029961620B9B22C004BC977 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7029961420B9B22C004BC977 /* Localizable.strings */; };
-		7029961820B9D4F1004BC977 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7029961720B9D4F1004BC977 /* File.swift */; };
 		7060651B2070D51E001D6FE4 /* GameBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7060651A2070D51E001D6FE4 /* GameBoardViewController.swift */; };
 		7060651D2070D7DA001D6FE4 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7060651C2070D7DA001D6FE4 /* ImageCollectionViewCell.swift */; };
 		7066B639207122F7006931ED /* Difficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7066B638207122F7006931ED /* Difficulty.swift */; };
@@ -63,7 +62,6 @@
 		7002029620693DDD00C4E17B /* MemoryGameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGameUITests.swift; sourceTree = "<group>"; };
 		7002029820693DDD00C4E17B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7029961520B9B22C004BC977 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = MemoryGame/Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		7029961720B9D4F1004BC977 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		7060651A2070D51E001D6FE4 /* GameBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardViewController.swift; sourceTree = "<group>"; };
 		7060651C2070D7DA001D6FE4 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		7066B638207122F7006931ED /* Difficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difficulty.swift; sourceTree = "<group>"; };
@@ -108,7 +106,6 @@
 			isa = PBXGroup;
 			children = (
 				70DBB63320BC5A7000A036C6 /* Storage.swift */,
-				7029961720B9D4F1004BC977 /* File.swift */,
 				7002027220693DDD00C4E17B /* MemoryGame */,
 				7002028A20693DDD00C4E17B /* MemoryGameTests */,
 				7002029520693DDD00C4E17B /* MemoryGameUITests */,
@@ -347,7 +344,6 @@
 				7066B639207122F7006931ED /* Difficulty.swift in Sources */,
 				70CEA8912072280C00DAF868 /* DifficultyViewController.swift in Sources */,
 				7066B63D20712E86006931ED /* FinishViewController.swift in Sources */,
-				7029961820B9D4F1004BC977 /* File.swift in Sources */,
 				7060651B2070D51E001D6FE4 /* GameBoardViewController.swift in Sources */,
 				7060651D2070D7DA001D6FE4 /* ImageCollectionViewCell.swift in Sources */,
 				70DBB63420BC5A7000A036C6 /* Storage.swift in Sources */,
