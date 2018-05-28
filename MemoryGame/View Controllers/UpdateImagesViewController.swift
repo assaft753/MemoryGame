@@ -9,10 +9,15 @@ import UIKit
 
 class UpdateImagesViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
     @IBOutlet weak var imageCollection: UICollectionView!
-    var currentImages:[UIImage]!
+    var currentImages:[UIImage]?
     let storage = Storage()
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        print("memory issue")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -23,10 +28,13 @@ class UpdateImagesViewController: UIViewController,UICollectionViewDelegate,UICo
         self.imageCollection.delegate=self
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.currentImages = nil
         self.imageCollection.dataSource=nil
         self.imageCollection.delegate=nil
     }
+    
     func reloadImages() {
         if let images = storage.ReloadSavedImages(for: StaticValues.IMAGES_NAME_FILE)
         {
@@ -39,12 +47,12 @@ class UpdateImagesViewController: UIViewController,UICollectionViewDelegate,UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.currentImages.count
+        return self.currentImages!.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let imageViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "update image cell", for: indexPath) as! ImageUpdateCollectionViewCell
-        imageViewCell.imageView.image = self.currentImages[indexPath.item]
+        imageViewCell.imageView.image = self.currentImages![indexPath.item]
         return imageViewCell
     }
     

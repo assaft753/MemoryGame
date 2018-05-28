@@ -25,6 +25,11 @@ class CustomizeCardViewController: UIViewController, UIPickerViewDataSource, UIP
         chooseBtn.layer.cornerRadius = StaticValues.CORNER_RADIUS_BTN
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        print("memory issue")
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
@@ -118,6 +123,10 @@ class CustomizeCardViewController: UIViewController, UIPickerViewDataSource, UIP
             loadingIndicator.hidesWhenStopped = true
             loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
             loadingIndicator.startAnimating()
+            var a = [image!]
+            var b = [image!]
+            var c = [image!]
+            var d = [image!]
             alert.view.addSubview(loadingIndicator)
             self?.present(alert, animated: true, completion: nil)
             DispatchQueue.global().async { [weak self] in
@@ -125,7 +134,7 @@ class CustomizeCardViewController: UIViewController, UIPickerViewDataSource, UIP
                 self?.storage.AddImage(for: StaticValues.IMAGES_NAME_FILE, at: self?.imageIndex, image: image)
                 print("finish add image")
                 print("add prev")
-                self?.storage.AddImage(for: StaticValues.PREVIOUS_IMAGES_NAME_FILE, at: nil, image: image)
+                //self?.storage.AddImage(for: StaticValues.PREVIOUS_IMAGES_NAME_FILE, at: nil, image: image)
                 print("finish add prev")
                 DispatchQueue.main.sync { [weak self] in
                     print("finish")
