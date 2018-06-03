@@ -44,7 +44,7 @@ struct Storage {
     private static func SaveImages(for key:String, with images:[UIImage])
     {
         let filePath = StaticValues.BASE_URL.appendingPathComponent(key)
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(images, toFile: filePath.path)
+        NSKeyedArchiver.archiveRootObject(images, toFile: filePath.path)
     }
     
     static func SaveImages()
