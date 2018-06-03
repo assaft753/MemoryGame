@@ -14,6 +14,7 @@ class MainViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var playBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        Storage.LoadImages()
         customizeCardBtn.layer.cornerRadius = StaticValues.CORNER_RADIUS_BTN
         highScoreBtn.layer.cornerRadius = StaticValues.CORNER_RADIUS_BTN
         playBtn.layer.cornerRadius = StaticValues.CORNER_RADIUS_BTN

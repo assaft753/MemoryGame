@@ -12,7 +12,7 @@ import MobileCoreServices
 class CustomizeCardViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var chooseBtn: UIButton!
-    let storage = Storage()
+    weak var photoDelegate:ChangePhotoDelegate?
     var chooseOption = "Gallery"
     let options = StaticValues.OPTIONS_PICKER
     var imageIndex:Int!
@@ -23,11 +23,6 @@ class CustomizeCardViewController: UIViewController, UIPickerViewDataSource, UIP
         picker.dataSource = self
         picker.delegate = self
         chooseBtn.layer.cornerRadius = StaticValues.CORNER_RADIUS_BTN
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        print("memory issue")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,6 +48,7 @@ class CustomizeCardViewController: UIViewController, UIPickerViewDataSource, UIP
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let prevCtrl = segue.destination as! PreviousImagesViewController
         prevCtrl.imageIndex = sender as! Int
+        prevCtrl.photoDelegate = self.photoDelegate
     }
     
     @IBAction func onClickChooseBtn(_ sender: UIButton) {
@@ -63,7 +59,7 @@ class CustomizeCardViewController: UIViewController, UIPickerViewDataSource, UIP
             if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
                 imagePicker.sourceType = .photoLibrary
                 imagePicker.allowsEditing = false
-                self.present(imagePicker, animated: true, completion: nil)
+                self.present(imagePicker, animated: true)
             }
         case "Previous images":
             performSegue(withIdentifier: "Previous Images", sender:imageIndex)
@@ -82,8 +78,7 @@ class CustomizeCardViewController: UIViewController, UIPickerViewDataSource, UIP
                     {
                         if let image=UIImage(data: data!)
                         {
-                            self?.storage.AddImage(for: StaticValues.IMAGES_NAME_FILE, at: self!.imageIndex, image: image)
-                            self?.storage.AddImage(for: StaticValues.PREVIOUS_IMAGES_NAME_FILE, at: nil, image: image)
+                            self?.photoDelegate?.changePhoto(to: image, at: self!.imageIndex)
                             self?.navigationController?.dismiss(animated: true)
                         }
                     }
@@ -115,37 +110,33 @@ class CustomizeCardViewController: UIViewController, UIPickerViewDataSource, UIP
         navigationController?.dismiss(animated: true)
     }
     
-    
     @objc func imagePickerController(_ picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
-        picker.dismiss(animated: true){ [weak self] ()  in
-            let alert = UIAlertController(title: nil, message: "please wait...", preferredStyle: .alert)
-            let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
-            loadingIndicator.hidesWhenStopped = true
-            loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-            loadingIndicator.startAnimating()
-            var a = [image!]
-            var b = [image!]
-            var c = [image!]
-            var d = [image!]
-            alert.view.addSubview(loadingIndicator)
-            self?.present(alert, animated: true, completion: nil)
-            DispatchQueue.global().async { [weak self] in
-                print("add image")
-                self?.storage.AddImage(for: StaticValues.IMAGES_NAME_FILE, at: self?.imageIndex, image: image)
-                print("finish add image")
-                print("add prev")
-                //self?.storage.AddImage(for: StaticValues.PREVIOUS_IMAGES_NAME_FILE, at: nil, image: image)
-                print("finish add prev")
-                DispatchQueue.main.sync { [weak self] in
-                    print("finish")
-                    self?.dismiss(animated: false)
-                    self?.navigationController?.dismiss(animated: true)
-                }
-            }
-        }
-        //self.dismiss(animated: true)
-        //
-        //
+        self.photoDelegate?.changePhoto(to: image!, at: self.imageIndex)
+        self.dismiss(animated: true)
+        self.navigationController?.dismiss(animated: true)
         
+        
+        /*picker.dismiss(animated: true){ [weak self] ()  in
+         let alert = UIAlertController(title: nil, message: "please wait...", preferredStyle: .alert)
+         let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+         loadingIndicator.hidesWhenStopped = true
+         loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+         loadingIndicator.startAnimating()
+         alert.view.addSubview(loadingIndicator)
+         self?.present(alert, animated: true, completion: nil)
+         DispatchQueue.global().sync { [weak self,unowned image] in
+         print("add image")
+         self?.storage.AddImage(for: StaticValues.IMAGES_NAME_FILE, at: self?.imageIndex, image: image)
+         print("finish add image")
+         print("add prev")
+         self?.storage.AddImage(for: StaticValues.PREVIOUS_IMAGES_NAME_FILE, at: nil, image: image!)
+         print("finish add prev")
+         DispatchQueue.main.sync { [weak self] in
+         print("finish")
+         self?.dismiss(animated: false)
+         self?.navigationController?.dismiss(animated: true)
+         }
+         }
+         }*/
     }
 }

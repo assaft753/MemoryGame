@@ -17,6 +17,7 @@
 		7029961620B9B22C004BC977 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7029961420B9B22C004BC977 /* Localizable.strings */; };
 		7060651B2070D51E001D6FE4 /* GameBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7060651A2070D51E001D6FE4 /* GameBoardViewController.swift */; };
 		7060651D2070D7DA001D6FE4 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7060651C2070D7DA001D6FE4 /* ImageCollectionViewCell.swift */; };
+		70626D3820BF20A400C24649 /* ChangePhotoDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70626D3720BF20A400C24649 /* ChangePhotoDelegate.swift */; };
 		7066B639207122F7006931ED /* Difficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7066B638207122F7006931ED /* Difficulty.swift */; };
 		7066B63D20712E86006931ED /* FinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7066B63C20712E86006931ED /* FinishViewController.swift */; };
 		70936D1A20AEE38F00C46CDC /* UpdateImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70936D1920AEE38F00C46CDC /* UpdateImagesViewController.swift */; };
@@ -64,6 +65,7 @@
 		7029961520B9B22C004BC977 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = MemoryGame/Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7060651A2070D51E001D6FE4 /* GameBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardViewController.swift; sourceTree = "<group>"; };
 		7060651C2070D7DA001D6FE4 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		70626D3720BF20A400C24649 /* ChangePhotoDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePhotoDelegate.swift; sourceTree = "<group>"; };
 		7066B638207122F7006931ED /* Difficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difficulty.swift; sourceTree = "<group>"; };
 		7066B63C20712E86006931ED /* FinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishViewController.swift; sourceTree = "<group>"; };
 		70936D1920AEE38F00C46CDC /* UpdateImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateImagesViewController.swift; sourceTree = "<group>"; };
@@ -102,10 +104,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7002026720693DDD00C4E17B = {
+		7000699820C3E82100D18F53 /* Static Structs */ = {
 			isa = PBXGroup;
 			children = (
 				70DBB63320BC5A7000A036C6 /* Storage.swift */,
+				70936D1B20AEE56600C46CDC /* StaticValues.swift */,
+			);
+			path = "Static Structs";
+			sourceTree = "<group>";
+		};
+		7000699920C3E85200D18F53 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				70626D3720BF20A400C24649 /* ChangePhotoDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		7002026720693DDD00C4E17B = {
+			isa = PBXGroup;
+			children = (
 				7002027220693DDD00C4E17B /* MemoryGame */,
 				7002028A20693DDD00C4E17B /* MemoryGameTests */,
 				7002029520693DDD00C4E17B /* MemoryGameUITests */,
@@ -132,7 +150,8 @@
 				7002027720693DDD00C4E17B /* Main.storyboard */,
 				70E21A1C2080E54F009C683D /* View Controllers */,
 				70E21A1D2080E56B009C683D /* View Cells */,
-				70936D1B20AEE56600C46CDC /* StaticValues.swift */,
+				7000699820C3E82100D18F53 /* Static Structs */,
+				7000699920C3E85200D18F53 /* Delegates */,
 			);
 			path = MemoryGame;
 			sourceTree = "<group>";
@@ -349,6 +368,7 @@
 				70DBB63420BC5A7000A036C6 /* Storage.swift in Sources */,
 				70CEA88F2072276E00DAF868 /* MainViewController.swift in Sources */,
 				70936D1C20AEE56600C46CDC /* StaticValues.swift in Sources */,
+				70626D3820BF20A400C24649 /* ChangePhotoDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

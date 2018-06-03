@@ -7,52 +7,32 @@
 //
 import UIKit
 
-class UpdateImagesViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
+class UpdateImagesViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,ChangePhotoDelegate {
+    
     @IBOutlet weak var imageCollection: UICollectionView!
-    var currentImages:[UIImage]?
-    let storage = Storage()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        print("memory issue")
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print("enter will appear")
-        reloadImages()
         self.imageCollection.dataSource=self
         self.imageCollection.delegate=self
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.currentImages = nil
-        self.imageCollection.dataSource=nil
-        self.imageCollection.delegate=nil
-    }
-    
-    func reloadImages() {
-        if let images = storage.ReloadSavedImages(for: StaticValues.IMAGES_NAME_FILE)
-        {
-            self.currentImages=images
-        }
-        else
-        {
-            self.currentImages=StaticValues.DEFAULTS_IMAGES
+    func changePhoto(to image: UIImage, at index: Int) {
+        Storage.currentImages[index] = image
+        Storage.previousImages.append(image)
+        imageCollection?.reloadData()
+        DispatchQueue.global().async {
+            Storage.SaveImages()
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.currentImages!.count
+        return Storage.currentImages.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let imageViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "update image cell", for: indexPath) as! ImageUpdateCollectionViewCell
-        imageViewCell.imageView.image = self.currentImages![indexPath.item]
+        imageViewCell.imageView.image = Storage.currentImages[indexPath.item]
         return imageViewCell
     }
     
@@ -63,7 +43,8 @@ class UpdateImagesViewController: UIViewController,UICollectionViewDelegate,UICo
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let navCtrl = segue.destination as? UINavigationController
         let customizeCtrl = navCtrl?.visibleViewController as? CustomizeCardViewController
-        customizeCtrl?.imageIndex=sender as! Int
+        customizeCtrl?.imageIndex = sender as! Int
+        customizeCtrl?.photoDelegate = self
     }
     
     @IBAction func backButton(_ sender: Any) {

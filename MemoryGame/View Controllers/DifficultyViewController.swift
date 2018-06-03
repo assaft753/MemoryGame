@@ -14,7 +14,7 @@ class DifficultyViewController: UIViewController {
     @IBOutlet weak var mediumButton: UIButton!
     @IBOutlet weak var hardButton: UIButton!
     @IBOutlet weak var userNameLabel: UILabel!
-    {
+        {
         didSet
         {
             userNameLabel.text=userName
