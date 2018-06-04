@@ -179,5 +179,8 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
             emojicell.setCellEnable(toEnable)
         }
     }
+    
+    func saveRecords(name:String,score:Int) {
+    }
 }
 

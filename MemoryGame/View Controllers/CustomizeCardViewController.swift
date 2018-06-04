@@ -114,29 +114,5 @@ class CustomizeCardViewController: UIViewController, UIPickerViewDataSource, UIP
         self.photoDelegate?.changePhoto(to: image!, at: self.imageIndex)
         self.dismiss(animated: true)
         self.navigationController?.dismiss(animated: true)
-        
-        
-        /*picker.dismiss(animated: true){ [weak self] ()  in
-         let alert = UIAlertController(title: nil, message: "please wait...", preferredStyle: .alert)
-         let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
-         loadingIndicator.hidesWhenStopped = true
-         loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-         loadingIndicator.startAnimating()
-         alert.view.addSubview(loadingIndicator)
-         self?.present(alert, animated: true, completion: nil)
-         DispatchQueue.global().sync { [weak self,unowned image] in
-         print("add image")
-         self?.storage.AddImage(for: StaticValues.IMAGES_NAME_FILE, at: self?.imageIndex, image: image)
-         print("finish add image")
-         print("add prev")
-         self?.storage.AddImage(for: StaticValues.PREVIOUS_IMAGES_NAME_FILE, at: nil, image: image!)
-         print("finish add prev")
-         DispatchQueue.main.sync { [weak self] in
-         print("finish")
-         self?.dismiss(animated: false)
-         self?.navigationController?.dismiss(animated: true)
-         }
-         }
-         }*/
     }
 }

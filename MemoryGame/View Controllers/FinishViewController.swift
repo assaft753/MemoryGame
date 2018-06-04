@@ -10,8 +10,6 @@ import UIKit
 
 class FinishViewController: UIViewController {
     
-    //var difficulty:Difficulty?
-    //var userName:String?
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -22,15 +20,4 @@ class FinishViewController: UIViewController {
     @IBAction func playAgain(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
-    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        if let gameController=segue.destination as? GameBoardViewController
-        {
-            gameController.difficulty=self.difficulty
-            gameController.userName = self.userName
-        }
-        else if let difficultyController=segue.destination as? DifficultyViewController{
-            difficultyController.userName = self.userName
-        }
-    }*/
-    
 }
