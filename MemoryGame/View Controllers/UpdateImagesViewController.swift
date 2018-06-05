@@ -10,16 +10,22 @@ import UIKit
 class UpdateImagesViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,ChangePhotoDelegate {
     
     @IBOutlet weak var imageCollection: UICollectionView!
+    @IBOutlet weak var defaultImagesBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.imageCollection.dataSource=self
         self.imageCollection.delegate=self
+        defaultImagesBtn.layer.cornerRadius = StaticValues.CORNER_RADIUS_BTN
     }
     
     func changePhoto(to image: UIImage, at index: Int) {
         Storage.currentImages[index] = image
-        Storage.previousImages.append(image)
+        print(image)
+        if (!Storage.previousImages.contains(image))
+        {
+            Storage.previousImages.append(image)
+        }
         imageCollection?.reloadData()
         DispatchQueue.global().async {
             Storage.SaveImages()
@@ -45,6 +51,11 @@ class UpdateImagesViewController: UIViewController,UICollectionViewDelegate,UICo
         let customizeCtrl = navCtrl?.visibleViewController as? CustomizeCardViewController
         customizeCtrl?.imageIndex = sender as! Int
         customizeCtrl?.photoDelegate = self
+    }
+    
+    @IBAction func defaultImagesBtn(_ sender: UIButton) {
+        Storage.currentImages = StaticValues.DEFAULTS_IMAGES
+        imageCollection?.reloadData()
     }
     
     @IBAction func backButton(_ sender: Any) {

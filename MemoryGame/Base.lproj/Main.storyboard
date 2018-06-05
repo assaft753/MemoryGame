@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gaJ-Gc-CUP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gaJ-Gc-CUP">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -173,28 +173,48 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" restorationIdentifier="defaultImagesBtn" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1tx-H2-dJg">
+                                <rect key="frame" x="52.333333333333343" y="677" width="310" height="39"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="310" id="Zs5-K7-dwn"/>
+                                    <constraint firstAttribute="height" constant="39" id="t9Q-6g-HZG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <state key="normal" title="Change to default images">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.89411764709999997" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="defaultImagesBtn:" destination="Qmz-cd-WYl" eventType="touchUpInside" id="QpM-M4-XSZ"/>
+                                    <action selector="onClickChooseBtn:" destination="nYi-bD-kcm" eventType="touchUpInside" id="CUZ-Fu-V7r"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.89411764709999997" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="IS0-S2-gYb" firstAttribute="top" secondItem="hkm-vA-0ur" secondAttribute="bottom" constant="25" id="1Qn-PA-Sg1"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hkm-vA-0ur" secondAttribute="trailing" constant="20" symbolic="YES" id="1hB-Rq-t3v"/>
                             <constraint firstItem="IS0-S2-gYb" firstAttribute="centerX" secondItem="Qzp-pd-egb" secondAttribute="centerX" id="3c3-hf-knF"/>
                             <constraint firstItem="Qzp-pd-egb" firstAttribute="trailing" secondItem="V0g-iV-nfv" secondAttribute="trailing" constant="28" id="73n-di-HbD"/>
                             <constraint firstItem="IS0-S2-gYb" firstAttribute="leading" secondItem="Qzp-pd-egb" secondAttribute="leading" constant="20" id="7q4-B6-PfS"/>
                             <constraint firstItem="hkm-vA-0ur" firstAttribute="leading" secondItem="Qzp-pd-egb" secondAttribute="leading" constant="20" id="AOK-fJ-B58"/>
                             <constraint firstItem="Qzp-pd-egb" firstAttribute="trailing" secondItem="IS0-S2-gYb" secondAttribute="trailing" constant="20" id="BeE-GE-9yN"/>
                             <constraint firstItem="hkm-vA-0ur" firstAttribute="leading" secondItem="Qcl-kZ-pgy" secondAttribute="leading" id="Cev-ej-IY2"/>
-                            <constraint firstItem="Qzp-pd-egb" firstAttribute="bottom" secondItem="IS0-S2-gYb" secondAttribute="bottom" constant="70" id="L3K-6a-6i9"/>
                             <constraint firstItem="Qzp-pd-egb" firstAttribute="top" secondItem="Qcl-kZ-pgy" secondAttribute="top" constant="9" id="R5r-VH-cXy"/>
                             <constraint firstItem="V0g-iV-nfv" firstAttribute="top" secondItem="Qcl-kZ-pgy" secondAttribute="bottom" constant="-3" id="RpG-uX-ajm"/>
                             <constraint firstItem="hkm-vA-0ur" firstAttribute="top" secondItem="V0g-iV-nfv" secondAttribute="bottom" constant="-20" id="Sny-Im-eNZ"/>
                             <constraint firstItem="IS0-S2-gYb" firstAttribute="leading" secondItem="Qcl-kZ-pgy" secondAttribute="leading" id="brc-cR-ySh"/>
+                            <constraint firstItem="1tx-H2-dJg" firstAttribute="centerX" secondItem="Qzp-pd-egb" secondAttribute="centerX" id="ei9-9q-tnJ"/>
+                            <constraint firstItem="Qzp-pd-egb" firstAttribute="bottom" secondItem="1tx-H2-dJg" secondAttribute="bottom" constant="20" id="rBw-N3-48E"/>
                             <constraint firstItem="V0g-iV-nfv" firstAttribute="leading" secondItem="Qzp-pd-egb" secondAttribute="leading" constant="20" id="sT0-ko-daY"/>
+                            <constraint firstItem="1tx-H2-dJg" firstAttribute="top" secondItem="IS0-S2-gYb" secondAttribute="bottom" constant="11" id="xt7-Uh-k81"/>
                             <constraint firstItem="Qcl-kZ-pgy" firstAttribute="leading" secondItem="Qzp-pd-egb" secondAttribute="leading" constant="20" id="zZr-ZC-Sok"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Qzp-pd-egb"/>
                     </view>
                     <navigationItem key="navigationItem" id="zUX-Y2-AQj"/>
                     <connections>
+                        <outlet property="defaultImagesBtn" destination="1tx-H2-dJg" id="FAz-Qq-CiX"/>
                         <outlet property="imageCollection" destination="IS0-S2-gYb" id="JLc-2N-FcI"/>
                         <segue destination="1w4-4M-x8l" kind="presentation" identifier="Change Image" id="3yg-uE-zMe"/>
                     </connections>
@@ -218,7 +238,7 @@
                                     <constraint firstAttribute="height" constant="233" id="veI-2M-Gi9"/>
                                 </constraints>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" restorationIdentifier="playBtn" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jws-ix-vVk">
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" restorationIdentifier="chooseBtn" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jws-ix-vVk">
                                 <rect key="frame" x="90" y="544" width="235" height="39"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -248,9 +268,6 @@
                                     <action selector="backButton:" destination="nYi-bD-kcm" eventType="touchUpInside" id="gh1-Hg-QkS"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="win" translatesAutoresizingMaskIntoConstraints="NO" id="hcs-Fu-JCu">
-                                <rect key="frame" x="142" y="600" width="131" height="116"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.89411764709999997" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -258,11 +275,7 @@
                             <constraint firstItem="MjG-Ci-DIl" firstAttribute="top" secondItem="JnX-1o-Tdj" secondAttribute="top" id="DLm-L8-ZQl"/>
                             <constraint firstItem="odp-U2-N7l" firstAttribute="centerX" secondItem="JnX-1o-Tdj" secondAttribute="centerX" constant="0.5" id="L0X-TS-5cG"/>
                             <constraint firstItem="MjG-Ci-DIl" firstAttribute="leading" secondItem="JnX-1o-Tdj" secondAttribute="leading" constant="30" id="NKj-9O-6CS"/>
-                            <constraint firstItem="hcs-Fu-JCu" firstAttribute="centerX" secondItem="JnX-1o-Tdj" secondAttribute="centerX" id="SjR-Gl-ZNJ"/>
                             <constraint firstItem="odp-U2-N7l" firstAttribute="leading" secondItem="JnX-1o-Tdj" secondAttribute="leading" constant="30" id="aMK-nE-h2R"/>
-                            <constraint firstItem="JnX-1o-Tdj" firstAttribute="bottom" secondItem="hcs-Fu-JCu" secondAttribute="bottom" constant="20" id="bZb-6N-Jhc"/>
-                            <constraint firstItem="hcs-Fu-JCu" firstAttribute="top" secondItem="jws-ix-vVk" secondAttribute="bottom" constant="17" id="cEE-6v-Hqw"/>
-                            <constraint firstItem="hcs-Fu-JCu" firstAttribute="leading" secondItem="JnX-1o-Tdj" secondAttribute="leading" constant="142" id="eA9-kM-jvM"/>
                             <constraint firstItem="odp-U2-N7l" firstAttribute="top" secondItem="JnX-1o-Tdj" secondAttribute="top" constant="59" id="gkv-Uq-1CE"/>
                             <constraint firstItem="odp-U2-N7l" firstAttribute="centerX" secondItem="JnX-1o-Tdj" secondAttribute="centerX" constant="0.5" id="kZr-ws-RV5"/>
                             <constraint firstItem="jws-ix-vVk" firstAttribute="top" secondItem="cQC-IP-RfY" secondAttribute="bottom" constant="59" id="pIS-nS-gd8"/>
@@ -274,7 +287,6 @@
                     <navigationItem key="navigationItem" id="TTa-sC-fxz"/>
                     <connections>
                         <outlet property="chooseBtn" destination="jws-ix-vVk" id="HLR-Gv-RH0"/>
-                        <outlet property="chosenImage" destination="hcs-Fu-JCu" id="g79-de-4w5"/>
                         <outlet property="picker" destination="cQC-IP-RfY" id="cnE-GS-aZI"/>
                         <segue destination="hsT-zM-FW6" kind="show" identifier="Previous Images" id="vni-Wb-gJG"/>
                     </connections>
@@ -789,7 +801,6 @@
         <image name="customize_cards" width="772" height="132"/>
         <image name="logo" width="177" height="106"/>
         <image name="title" width="690" height="133"/>
-        <image name="win" width="400" height="345"/>
         <image name="winning" width="325" height="400"/>
     </resources>
     <inferredMetricsTieBreakers>

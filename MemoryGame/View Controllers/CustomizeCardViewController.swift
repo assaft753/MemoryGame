@@ -16,7 +16,6 @@ class CustomizeCardViewController: UIViewController, UIPickerViewDataSource, UIP
     var chooseOption = "Gallery"
     let options = StaticValues.OPTIONS_PICKER
     var imageIndex:Int!
-    @IBOutlet weak var chosenImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

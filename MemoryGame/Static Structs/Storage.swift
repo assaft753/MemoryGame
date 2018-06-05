@@ -37,7 +37,7 @@ struct Storage {
         }
         else
         {
-            Storage.previousImages = [UIImage]()
+            Storage.previousImages = StaticValues.DEFAULTS_IMAGES
         }
     }
     

@@ -22,7 +22,8 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
     }
     @IBOutlet weak var gameBoardCollectionView: UICollectionView!
     
-    var allImages =  [#imageLiteral(resourceName: "Bear"), #imageLiteral(resourceName: "Dog"), #imageLiteral(resourceName: "Monkey"), #imageLiteral(resourceName: "Simba"), #imageLiteral(resourceName: "Butterfly"), #imageLiteral(resourceName: "Dolphin"), #imageLiteral(resourceName: "Duck"), #imageLiteral(resourceName: "Kangaroo"), #imageLiteral(resourceName: "Koala"), #imageLiteral(resourceName: "Tiger")]
+    //var allImages =  [#imageLiteral(resourceName: "Bear"), #imageLiteral(resourceName: "Dog"), #imageLiteral(resourceName: "Monkey"), #imageLiteral(resourceName: "Simba"), #imageLiteral(resourceName: "Butterfly"), #imageLiteral(resourceName: "Dolphin"), #imageLiteral(resourceName: "Duck"), #imageLiteral(resourceName: "Kangaroo"), #imageLiteral(resourceName: "Koala"), #imageLiteral(resourceName: "Tiger")]
+    var allImages = Storage.currentImages
     var images:[UIImage]=[]
     var imageCells:[ImageCollectionViewCell]=[]
     var pairsCounter=0
@@ -48,7 +49,7 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
         initiateGameBoardValues()
         for i in 0..<pairsCounter
         {
-            images.append(allImages[i])
+            images.append(allImages![i])
         }
         images=images+images
         gameBoardCollectionView.delegate=self
