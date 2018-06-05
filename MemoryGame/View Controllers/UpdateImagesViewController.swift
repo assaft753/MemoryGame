@@ -56,6 +56,9 @@ class UpdateImagesViewController: UIViewController,UICollectionViewDelegate,UICo
     @IBAction func defaultImagesBtn(_ sender: UIButton) {
         Storage.currentImages = StaticValues.DEFAULTS_IMAGES
         imageCollection?.reloadData()
+        DispatchQueue.global().async {
+            Storage.SaveImages()
+        }
     }
     
     @IBAction func backButton(_ sender: Any) {
