@@ -10,5 +10,4 @@ import UIKit
 
 class ImageUpdateCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
-    
 }

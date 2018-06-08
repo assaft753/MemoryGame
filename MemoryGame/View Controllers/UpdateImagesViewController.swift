@@ -47,10 +47,12 @@ class UpdateImagesViewController: UIViewController,UICollectionViewDelegate,UICo
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let navCtrl = segue.destination as? UINavigationController
-        let customizeCtrl = navCtrl?.visibleViewController as? CustomizeCardViewController
-        customizeCtrl?.imageIndex = sender as! Int
-        customizeCtrl?.photoDelegate = self
+        let customizeCtrl = segue.destination as! CustomizeCardViewController
+        customizeCtrl.imageIndex = sender as! Int
+        customizeCtrl.photoDelegate = self
+        let backItem = UIBarButtonItem()
+        backItem.title = "Update images"
+        navigationItem.backBarButtonItem = backItem
     }
     
     @IBAction func defaultImagesBtn(_ sender: UIButton) {
@@ -59,10 +61,6 @@ class UpdateImagesViewController: UIViewController,UICollectionViewDelegate,UICo
         DispatchQueue.global().async {
             Storage.SaveImages()
         }
-    }
-    
-    @IBAction func backButton(_ sender: Any) {
-        self.navigationController?.dismiss(animated: true)
     }
 }
 

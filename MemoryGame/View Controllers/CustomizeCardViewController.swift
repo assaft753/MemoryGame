@@ -48,6 +48,9 @@ class CustomizeCardViewController: UIViewController, UIPickerViewDataSource, UIP
         let prevCtrl = segue.destination as! PreviousImagesViewController
         prevCtrl.imageIndex = sender as! Int
         prevCtrl.photoDelegate = self.photoDelegate
+        let backItem = UIBarButtonItem()
+        backItem.title = "Customize cards"
+        navigationItem.backBarButtonItem = backItem
     }
     
     @IBAction func onClickChooseBtn(_ sender: UIButton) {
@@ -104,14 +107,9 @@ class CustomizeCardViewController: UIViewController, UIPickerViewDataSource, UIP
             break
         }
     }
-    
-    @IBAction func backButton(_ sender: Any) {
-        navigationController?.dismiss(animated: true)
-    }
-    
+
     @objc func imagePickerController(_ picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
         self.photoDelegate?.changePhoto(to: image!, at: self.imageIndex)
-        self.dismiss(animated: true)
-        self.navigationController?.dismiss(animated: true)
+       self.navigationController?.popViewController(animated: true)
     }
 }

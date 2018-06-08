@@ -27,6 +27,7 @@
 		70CEA88F2072276E00DAF868 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEA88E2072276E00DAF868 /* MainViewController.swift */; };
 		70CEA8912072280C00DAF868 /* DifficultyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEA8902072280C00DAF868 /* DifficultyViewController.swift */; };
 		70DBB63420BC5A7000A036C6 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DBB63320BC5A7000A036C6 /* Storage.swift */; };
+		BA0444D720CA75520067B9FC /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0444D620CA75520067B9FC /* Score.swift */; };
 		BABC2C6320B0A5EB004C81A5 /* CustomizeCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABC2C6220B0A5EB004C81A5 /* CustomizeCardViewController.swift */; };
 		BABC2C6520B0ACF7004C81A5 /* PreviousImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABC2C6420B0ACF7004C81A5 /* PreviousImagesViewController.swift */; };
 		BABC2C6720B0B521004C81A5 /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABC2C6620B0B521004C81A5 /* HighScoreViewController.swift */; };
@@ -76,6 +77,7 @@
 		70CEA88E2072276E00DAF868 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		70CEA8902072280C00DAF868 /* DifficultyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyViewController.swift; sourceTree = "<group>"; };
 		70DBB63320BC5A7000A036C6 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		BA0444D620CA75520067B9FC /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		BABC2C6220B0A5EB004C81A5 /* CustomizeCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeCardViewController.swift; sourceTree = "<group>"; };
 		BABC2C6420B0ACF7004C81A5 /* PreviousImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousImagesViewController.swift; sourceTree = "<group>"; };
 		BABC2C6620B0B521004C81A5 /* HighScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 		7002027220693DDD00C4E17B /* MemoryGame */ = {
 			isa = PBXGroup;
 			children = (
+				BA0444D520CA75370067B9FC /* Model */,
 				7002028220693DDD00C4E17B /* Info.plist */,
 				70E21A1E2080E57A009C683D /* Enums */,
 				70E21A1F2080E597009C683D /* Supporting Files */,
@@ -219,6 +222,14 @@
 				7002027A20693DDD00C4E17B /* MemoryGame.xcdatamodeld */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BA0444D520CA75370067B9FC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BA0444D620CA75520067B9FC /* Score.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -372,6 +383,7 @@
 				70DBB63420BC5A7000A036C6 /* Storage.swift in Sources */,
 				70CEA88F2072276E00DAF868 /* MainViewController.swift in Sources */,
 				70936D1C20AEE56600C46CDC /* StaticValues.swift in Sources */,
+				BA0444D720CA75520067B9FC /* Score.swift in Sources */,
 				70626D3820BF20A400C24649 /* ChangePhotoDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

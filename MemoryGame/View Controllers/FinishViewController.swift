@@ -10,14 +10,27 @@ import UIKit
 
 class FinishViewController: UIViewController {
     
+    @IBOutlet weak var userName: UITextField!
+    var time = -1
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     @IBAction func changeDifficulty(_ sender: UIButton) {
-        navigationController?.dismiss(animated: true)
+        saveRecord()
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController];
+        self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true);
     }
     
-    @IBAction func playAgain(_ sender: UIButton) {
-        navigationController?.popViewController(animated: true)
+    @IBAction func homeBtn(_ sender: UIButton) {
+        saveRecord()
+        navigationController?.popToRootViewController(animated: true)
     }
+    
+    private func saveRecord() {
+        if userName.text != nil{
+            let score = Score(name: userName.text!, time: time)
+            Score.save(score: score)
+        }
+    }
+
 }

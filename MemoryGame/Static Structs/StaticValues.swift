@@ -20,5 +20,4 @@ struct StaticValues {
     static let CARD_CORNER_RADIUS = CGFloat(5)
     static let OPTIONS_PICKER = [NSLocalizedString("Gallery", comment: ""), NSLocalizedString("Previous images", comment: ""), NSLocalizedString("Download URL", comment: ""), NSLocalizedString("Take a picture", comment: "")]
     
-    
 }

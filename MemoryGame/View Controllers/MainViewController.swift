@@ -18,13 +18,15 @@ class MainViewController: UIViewController,UITextFieldDelegate {
         customizeCardBtn.layer.cornerRadius = StaticValues.CORNER_RADIUS_BTN
         highScoreBtn.layer.cornerRadius = StaticValues.CORNER_RADIUS_BTN
         playBtn.layer.cornerRadius = StaticValues.CORNER_RADIUS_BTN
-        
-    }
-    @IBAction func changeImages(_ sender: Any) {
-        performSegue(withIdentifier: "Customize Images", sender: nil)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return textField.resignFirstResponder()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Home"
+        navigationItem.backBarButtonItem = backItem
     }
 }

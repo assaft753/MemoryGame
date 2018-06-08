@@ -18,9 +18,6 @@ class PreviousImagesViewController: UIViewController,UICollectionViewDelegate,UI
         self.imageCollection.delegate = self
         self.imageCollection.dataSource = self
     }
-    @IBAction func backButton(_ sender: Any) {
-        navigationController?.popToRootViewController(animated: true)
-    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return Storage.previousImages.count
@@ -35,7 +32,7 @@ class PreviousImagesViewController: UIViewController,UICollectionViewDelegate,UI
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let image = Storage.previousImages[indexPath.item]
         photoDelegate?.changePhoto(to: image, at: imageIndex)
-        navigationController?.dismiss(animated: true)
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController];
+        self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true);
     }
-    
 }

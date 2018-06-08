@@ -13,14 +13,7 @@ class DifficultyViewController: UIViewController {
     @IBOutlet weak var easyButton: UIButton!
     @IBOutlet weak var mediumButton: UIButton!
     @IBOutlet weak var hardButton: UIButton!
-    @IBOutlet weak var userNameLabel: UILabel!
-        {
-        didSet
-        {
-            userNameLabel.text=userName
-        }
-    }
-    var userName:String?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         easyButton.layer.cornerRadius = StaticValues.CORNER_RADIUS_BTN
@@ -28,10 +21,11 @@ class DifficultyViewController: UIViewController {
         hardButton.layer.cornerRadius = StaticValues.CORNER_RADIUS_BTN
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let gameBoardViewController=segue.destination as! UINavigationController
-        let temp=gameBoardViewController.visibleViewController as! GameBoardViewController
-        temp.difficulty=Difficulty.getDifficultyBy(difficultyname: segue.identifier!)
-        temp.userName = self.userName
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {        
+        let gameBoardViewController = segue.destination as! GameBoardViewController
+        gameBoardViewController.difficulty = Difficulty.getDifficultyBy(difficultyname: segue.identifier!)
+        let backItem = UIBarButtonItem()
+        backItem.title = "Difficulty"
+        navigationItem.backBarButtonItem = backItem
     }
 }

@@ -9,17 +9,12 @@
 import UIKit
 
 class GameBoardViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
-    var userName:String?
     let TIME_LEFT = 60
     var timeLeft=0
     var timer:Timer!
     
     @IBOutlet weak var timerLabel: UILabel!
-    @IBOutlet weak var userNameLabel: UILabel!{
-        didSet{
-            userNameLabel.text = userName
-        }
-    }
+
     @IBOutlet weak var gameBoardCollectionView: UICollectionView!
     var allImages = Storage.currentImages
     var images:[UIImage]=[]
@@ -35,10 +30,6 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
         (sections,rows) = difficulty!.getSecRow()
         pairsCounter=sections*rows/2
         timerLabel.text = "\(TIME_LEFT)"
-    }
-    
-    @IBAction func backaButton(_ sender: UIButton) {
-        navigationController?.dismiss(animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -144,7 +135,6 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
         }
         else if let prevIndexPath=self.gameBoardCollectionView.indexPath(for: prevCell!),prevIndexPath != indexPath
         {
-            
             if self.prevCell?.cubeImage == cell.cubeImage
             {
                 self.prevCell?.isMatched=true
@@ -163,11 +153,8 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
                         self.prevCell=nil
                         self.enableUI(true)
                     }
-                    
                 }
-                
             }
-            
         }
     }
     
@@ -180,6 +167,15 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
     }
     
     func saveRecords(name:String,score:Int) {
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Play again"
+        navigationItem.backBarButtonItem = backItem
+        
+        let finishViewController = segue.destination as! FinishViewController
+        finishViewController.time = self.timeLeft
     }
 }
 
