@@ -26,9 +26,17 @@ class FinishViewController: UIViewController {
         navigationController?.popToRootViewController(animated: true)
     }
     
+    @IBAction func playAgain(_ sender: UIButton) {
+        saveRecord()
+        navigationController?.popViewController(animated: true)
+    }
+    
+    
+    
+    
     private func saveRecord() {
         if userName.text != nil{
-            let score = Score(name: userName.text!, time: time)
+            let score = Score(name: userName.text!, time: 60-time)
             Score.save(score: score)
         }
     }

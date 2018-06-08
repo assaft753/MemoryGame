@@ -10,12 +10,172 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MemoryGame/View Controllers/CustomizeCardViewController.swift"
-            timestampString = "549492579.633216"
+            timestampString = "550161261.992757"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "114"
             endingLineNumber = "114"
             landmarkName = "imagePickerController(_:didFinishPickingImage:editingInfo:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MemoryGame/Model/Score.swift"
+            timestampString = "550161261.99287"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "load()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MemoryGame/Model/Score.swift"
+            timestampString = "550161261.993533"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "save(score:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MemoryGame/Model/Score.swift"
+            timestampString = "550161261.9941109"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "init(coder:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MemoryGame.Score.__allocating_init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;MemoryGame.Score&gt;"
+                  moduleName = "MemoryGame"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/assaftayouri/Desktop/HW/IOS/Memory%20Game/MemoryGame/MemoryGame/Model/Score.swift"
+                  timestampString = "550152499.899624"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MemoryGame.Score.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;MemoryGame.Score&gt;"
+                  moduleName = "MemoryGame"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/assaftayouri/Desktop/HW/IOS/Memory%20Game/MemoryGame/MemoryGame/Model/Score.swift"
+                  timestampString = "550152499.903352"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "49">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MemoryGame/Model/Score.swift"
+            timestampString = "550161261.994612"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "init(name:time:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MemoryGame.Score.__allocating_init(name: Swift.String, time: Swift.Int) -&gt; MemoryGame.Score"
+                  moduleName = "MemoryGame"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/assaftayouri/Desktop/HW/IOS/Memory%20Game/MemoryGame/MemoryGame/Model/Score.swift"
+                  timestampString = "550152499.911526"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MemoryGame.Score.init(name: Swift.String, time: Swift.Int) -&gt; MemoryGame.Score"
+                  moduleName = "MemoryGame"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/assaftayouri/Desktop/HW/IOS/Memory%20Game/MemoryGame/MemoryGame/Model/Score.swift"
+                  timestampString = "550152499.914893"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "41">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MemoryGame/Model/Score.swift"
+            timestampString = "550161261.995073"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "encode(with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MemoryGame/Model/Score.swift"
+            timestampString = "550161261.995504"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "save(score:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

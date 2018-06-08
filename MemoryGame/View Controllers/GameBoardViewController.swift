@@ -166,14 +166,7 @@ class GameBoardViewController: UIViewController,UICollectionViewDelegate,UIColle
         }
     }
     
-    func saveRecords(name:String,score:Int) {
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let backItem = UIBarButtonItem()
-        backItem.title = "Play again"
-        navigationItem.backBarButtonItem = backItem
-        
         let finishViewController = segue.destination as! FinishViewController
         finishViewController.time = self.timeLeft
     }

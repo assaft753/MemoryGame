@@ -8,14 +8,19 @@
 
 import Foundation
 
-struct Score : Codable, Comparable {
-    
+class Score :NSObject,NSCoding {
     var name:String
     var time:Int
     
-    enum CodingKeys: String, CodingKey {
-        case name
-        case time
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.name, forKey: "name")
+        aCoder.encode("\(self.time)", forKey: "time")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        guard let name = aDecoder.decodeObject(forKey: "name") as? String, let time = aDecoder.decodeObject(forKey: "time") as? String else { return nil }
+        self.name = name
+        self.time = Int(time)!
     }
     
     init(name:String,time:Int) {
@@ -23,19 +28,8 @@ struct Score : Codable, Comparable {
         self.time = time
     }
     
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(name, forKey: .name)
-        try container.encode(time, forKey: .time)
-    }
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        name = try container.decode(String.self, forKey: .name)
-        time = try container.decode(Int.self, forKey: .time)
-    }
-    
     static func load() -> [Score]?{
-        if let data = UserDefaults.standard.object(forKey: StaticValues.RECORDS_NAME_FILE) as? Data,  let scores = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Score]
+        if let data = UserDefaults.standard.object(forKey: StaticValues.RECORDS_NAME_FILE) as? Data, let scores = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Score]
         {
             return scores
         }
@@ -46,7 +40,8 @@ struct Score : Codable, Comparable {
         var scores:[Score]? = load()
         if scores != nil {
             scores?.append(score)
-            scores?.sort()
+            scores?.sort{$0.time < $1.time}
+            
         }
         else
         {
@@ -55,15 +50,18 @@ struct Score : Codable, Comparable {
         saveToFile(scores: scores!)
     }
     
-    private static func saveToFile(scores:[Score]){
-        let data = NSKeyedArchiver.archivedData(withRootObject: scores)
+     static func saveToFile(scores:[Score]){
+        var tempScores = scores
+        if scores.count > 10
+        {
+            tempScores.remove(at: scores.count-1)
+        }
+        let data = NSKeyedArchiver.archivedData(withRootObject: tempScores)
         UserDefaults.standard.set(data, forKey: StaticValues.RECORDS_NAME_FILE)
-        UserDefaults.standard.synchronize()
     }
     
-    static func < (lhs: Score, rhs: Score) -> Bool {
-        return lhs.time < rhs.time
-    }
+
+    
 }
 
 

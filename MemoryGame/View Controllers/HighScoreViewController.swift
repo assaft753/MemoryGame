@@ -14,9 +14,9 @@ class HighScoreViewController: UIViewController,UITableViewDelegate,UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         self.scoreTableView.rowHeight = 35
+        self.scoreTableView.tableFooterView = UIView()
         scores = Score.load()
         if scores != nil{
-            print("\nAAAAAAAAAA\n")
             scoreTableView.delegate = self
             scoreTableView.dataSource = self
         }
@@ -24,21 +24,14 @@ class HighScoreViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return scores!.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Score Cell") as! ScoreTableViewCell
-
-        if indexPath.row % 2 == 0
-        {
-            cell.nameLabel.text = "Sapir"
-        }
-        else
-        {
-            cell.nameLabel.text = "Assaf"
-        }
-        cell.rankLabel.text? = "\(indexPath.row + 1)"
+        cell.nameLabel.text = scores![indexPath.row].name
+        cell.timeLabel.text = "\(scores![indexPath.row].time)s"
+        cell.rankLabel.text = "\(indexPath.row + 1)."
         return cell
     }
     
