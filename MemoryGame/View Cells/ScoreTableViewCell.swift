@@ -12,6 +12,4 @@ class ScoreTableViewCell:UITableViewCell  {
     @IBOutlet weak var rankLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-    
-    @IBOutlet weak var cellView: UIView!
 }
